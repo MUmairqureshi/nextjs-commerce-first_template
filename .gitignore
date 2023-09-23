@@ -13,12 +13,18 @@
 /.next/
 /out/
 
+
+
 # production
 /build
 
 # misc
 .DS_Store
 *.pem
+
+# local env files
+.env*
+!.env.example
 
 # debug
 npm-debug.log*
