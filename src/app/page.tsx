@@ -19,13 +19,13 @@ export default async function HomePage() {
       <div>
         <Button>Click me</Button>
       </div>
-      {/* <ThreeItemGrid />
+      <ThreeItemGrid />
       <Suspense>
         <Carousel />
         <Suspense>
           <Footer />
         </Suspense>
-      </Suspense> */}
+      </Suspense>
     </>
   );
 }
