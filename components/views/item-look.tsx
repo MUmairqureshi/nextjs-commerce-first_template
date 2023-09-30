@@ -45,10 +45,10 @@ const ItemLook = () => {
             initial={{ opacity: 0, y: '10vh' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative mx-auto flex gap-x-4 2xl:mt-44"
+            className="relative mx-auto flex gap-x-4 xl:my-7 2xl:my-2"
             viewport={{ once: true }}
           >
-            <div className="h-[180px] w-[180px] md:h-[150px] md:w-[150px] lg:h-[200px] lg:w-[200px] xl:h-[280px] xl:w-[330px] 2xl:h-[300px] 2xl:w-[350px]">
+            <div className="h-[170px] w-[170px] md:h-[140px] md:w-[140px] lg:h-[190px] lg:w-[190px]">
               <Image
                 src={item.imageUrl}
                 alt="Product"

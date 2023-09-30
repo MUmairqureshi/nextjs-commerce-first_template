@@ -26,7 +26,7 @@ export default function Blog() {
   ];
   return (
     <Wrapper>
-      <section className="2xl:px-96">
+      <section className="">
         {/* Top Line */}
 
         <div className="flex flex-col items-start justify-between gap-y-3 py-2 lg:flex-row lg:items-center lg:px-20 lg:py-12">
@@ -79,7 +79,7 @@ export default function Blog() {
           <div className="mt-16 border-b-4 border-black pb-2 font-serif text-4xl uppercase lg:mt-9">
             Latest Article
           </div>
-          <div className="md:grid-row mt-4 grid grid-cols-1 gap-4 py-2 sm:grid-cols-1 lg:grid-cols-3">
+          <div className="md:grid-row mt-4 grid grid-cols-1 gap-x-4 gap-y-4 py-2 sm:grid-cols-1 lg:grid-cols-3 lg:gap-x-4 2xl:gap-x-44">
             {latestArticles.map((product: any) => (
               <ArticleItem key={product._id} item={product} />
             ))}

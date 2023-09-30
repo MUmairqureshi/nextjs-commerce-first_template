@@ -9,7 +9,7 @@ import React from 'react';
 // Define the TopArticleCard component
 const TopArticleCard: React.FC<{ product: Articles }> = ({ product }) => {
   return (
-    <div className="mt-10 flex flex-col gap-x-4 gap-y-4 md:flex-row lg:mt-8 lg:max-w-md xl:max-w-[622px]">
+    <div className="mt-10 flex flex-col gap-x-4 gap-y-4 md:flex-row lg:mt-8 lg:max-w-[430px] xl:max-w-[520px]">
       {/* Product Image (on the left) */}
       <div className="mx-auto h-[290px] w-[270px] md:h-[180px] md:w-[1000px] lg:mx-0 lg:h-[100px] lg:w-[900px] xl:h-[160px] xl:w-[990px]">
         <Image

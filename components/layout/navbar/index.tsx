@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import MobileMenu from './mobile-menu';
 import logo from '/components/images/dnk_logo.png';
+
 // const { SITE_NAME } = process.env;
 
 export default function Navbar() {

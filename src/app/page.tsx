@@ -1,3 +1,4 @@
+import Wrapper from 'components/Wrapper';
 import Hero from 'components/views/hero';
 import LogoRotator from 'components/views/logo-rotator';
 import ProductList from 'components/views/product-list';
@@ -19,11 +20,13 @@ export default async function HomePage() {
     <>
       <div>
         <Hero />
-        <LogoRotator />
-        <ProductList />
-        <Sales />
-        <ShopByCategory />
-        <ShopThisLook />
+        <Wrapper>
+          <LogoRotator />
+          <ProductList />
+          <Sales />
+          <ShopByCategory />
+          <ShopThisLook />
+        </Wrapper>
         {/* <Carousel /> */}
         {/* <Button>Click me</Button> */}
       </div>

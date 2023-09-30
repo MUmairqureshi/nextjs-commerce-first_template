@@ -24,7 +24,7 @@ const ArticleItem: FC<{ item: Article }> = ({ item }) => {
       className="relative my-6 lg:my-4"
       viewport={{ once: true }}
     >
-      <div className="mx-auto h-[290px] w-[270px] md:h-[280px] md:w-[700px] lg:mx-0 lg:h-[280px] lg:w-[290px] xl:h-[470px] xl:w-[400px]">
+      <div className="mx-auto h-[290px] w-[270px] md:h-[280px] md:w-[670px] lg:mx-0 lg:h-[280px] lg:w-[290px] xl:h-[450px] xl:w-[380px]">
         <Image
           src={item.imageUrl}
           alt={item.title}

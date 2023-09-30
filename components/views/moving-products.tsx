@@ -32,7 +32,7 @@ export default function MovingProducts() {
   return (
     <section className="flex items-center justify-between">
       <ArrowLeftSquare strokeWidth={0.8} size={40} onClick={moveLeft} className="hidden md:block" />
-      <div className="flex w-full flex-col items-center justify-center gap-y-6 md:grid md:grid-cols-[repeat(3,auto)] md:gap-x-4 lg:gap-x-10 2xl:gap-x-80">
+      <div className="flex w-full flex-col items-center justify-center gap-y-6 md:grid md:grid-cols-[repeat(3,auto)] md:gap-x-3 lg:gap-x-10 xl:gap-x-7">
         {displayedItems.map((item, index) => (
           <Link href={`/product/${item._id}`} key={index}>
             <motion.div
@@ -43,7 +43,7 @@ export default function MovingProducts() {
               className="relative mx-auto"
               viewport={{ once: true }}
             >
-              <div className="h-[245px] w-[225px] md:h-[210px] md:w-[190px] lg:h-[260px] lg:w-[240px] xl:h-[310px] xl:w-[290px]">
+              <div className="h-[245px] w-[225px] md:h-[210px] md:w-[185px] lg:h-[260px] lg:w-[240px] xl:h-[310px] xl:w-[280px]">
                 <Image
                   src={item.imageUrl}
                   alt="Product"

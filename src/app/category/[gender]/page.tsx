@@ -16,7 +16,7 @@ export default async function CategoryPage({ params }: { params: { gender: strin
 
   return (
     <section className="flex flex-col bg-slate-100">
-      <div className="mt-20 flex flex-col-reverse gap-x-3 gap-y-8 lg:flex-row xl:px-8">
+      <div className="my-20 flex flex-col-reverse gap-x-3 gap-y-8 lg:flex-row xl:px-8">
         <div className="basis-1/4">
           {/* <MenProductSideBar /> */}
 
@@ -47,7 +47,7 @@ export default async function CategoryPage({ params }: { params: { gender: strin
             </div>
           </section>
         </div>
-        <div className="m-2 basis-3/4 bg-white md:m-4 lg:m-4">
+        <div className="m-2 basis-3/4 bg-white md:m-4 lg:m-0 lg:mx-4">
           {/* <MenProducts /> */}
 
           <section className="lg:py-22 p-5 lg:px-14 xl:px-28 xl:py-24">
