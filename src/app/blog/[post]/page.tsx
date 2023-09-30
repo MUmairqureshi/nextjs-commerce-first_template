@@ -30,7 +30,7 @@ const Post = () => {
         <p className="text-xl uppercase text-white md:text-xl">by {postToDisplay?.author}</p>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-12 px-6 md:px-64">
+      <div className="mx-auto flex flex-col items-center justify-center gap-12 px-6 md:px-28 ">
         {postToDisplay?.body.map((item) => {
           return (
             <>
@@ -62,7 +62,7 @@ const Post = () => {
 
       <div className="flex w-full flex-col gap-4 px-6">
         <p className="text-4xl">Related</p>
-        <div className="flex w-full flex-col items-center gap-7 md:flex-row ">
+        <div className="items-top flex w-full flex-col flex-wrap md:flex-row">
           {data.map((post) => {
             return <Card id={post.id} />;
           })}
