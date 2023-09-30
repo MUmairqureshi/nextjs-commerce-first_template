@@ -1,8 +1,9 @@
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
-import { Suspense } from 'react';
-import { Button } from 'src/components/ui/button';
+import Hero from 'components/views/hero';
+import LogoRotator from 'components/views/logo-rotator';
+import ProductList from 'components/views/product-list';
+import { Sales } from 'components/views/sales-component';
+import { ShopByCategory } from 'components/views/shop-by-category';
+import { ShopThisLook } from 'components/views/shop-this-look';
 
 export const runtime = 'edge';
 
@@ -17,11 +18,18 @@ export default async function HomePage() {
   return (
     <>
       <div>
-        <Button>Click me</Button>
+        <Hero />
+        <LogoRotator />
+        <ProductList />
+        <Sales />
+        <ShopByCategory />
+        <ShopThisLook />
+        {/* <Carousel /> */}
+        {/* <Button>Click me</Button> */}
       </div>
       {/* <ThreeItemGrid />
       <Suspense>
-        <Carousel />
+
         <Suspense>
           <Footer />
         </Suspense>
