@@ -16,12 +16,10 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <div>
-        <Button>Click me</Button>
-      </div>
+      <div></div>
       <ThreeItemGrid />
       <Suspense>
-        <Carousel />
+        {/* <Carousel /> */}
         <Suspense>
           <Footer />
         </Suspense>
