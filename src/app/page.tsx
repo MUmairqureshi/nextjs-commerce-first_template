@@ -3,6 +3,7 @@ import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
 import { Button } from 'src/components/ui/button';
+// import Blog from 'components/blog';
 
 export const runtime = 'edge';
 
@@ -16,9 +17,9 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <div>
+      {/* <div>
         <Button>Click me</Button>
-      </div>
+      </div> */}
       {/* <ThreeItemGrid />
       <Suspense>
         <Carousel />
@@ -26,6 +27,8 @@ export default async function HomePage() {
           <Footer />
         </Suspense>
       </Suspense> */}
+
+      {/* <Blog /> */}
     </>
   );
 }
