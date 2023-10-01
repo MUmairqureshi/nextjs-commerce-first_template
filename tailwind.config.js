@@ -16,6 +16,11 @@ module.exports = {
       }
     },
     extend: {
+      backgroundImage: {
+        'hero-bg':
+          "url('https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/home-new-bg-free-img.jpg')",
+        'footer-texture': "url('/img/footer-texture.png')"
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
