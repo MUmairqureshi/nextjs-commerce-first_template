@@ -4,7 +4,7 @@ import BestSellerProductCard from '@/components/BestSellerProductCard';
 import SearchBar from '@/components/SearchBar';
 import ProductCart from '@/components/ProductCart';
 import { Button } from '@/components/ui/button';
-import { products } from '@/lib/products';
+import { products } from 'src/';
 import {
   Select,
   SelectContent,
