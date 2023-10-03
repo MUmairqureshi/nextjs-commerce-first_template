@@ -16,8 +16,8 @@ const RelatedProducts = () => {
             <motion.div
               key={ind}
               viewport={{ once: false }}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 1.2, delay: 0.4 * ind }}
             >
               <StyleCard

@@ -1,6 +1,5 @@
 'use client';
 import ProductDescription from 'components/SingleProduct/ProductDescription';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 import AdditionalInfo from './AdditionalInfo';
 import Reviews from './Reviews';
@@ -10,19 +9,13 @@ const ProductDetailsSection = ({ data }: any) => {
 
   return (
     <>
-      <motion.div
-        viewport={{ once: false }}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mt-14 flex flex-col gap-x-8 gap-y-4 border-t-2 border-gray-200 p-0 md:flex-row"
-      >
+      <div className="mt-14 flex flex-col gap-x-8 gap-y-4 border-t-2 border-gray-200 p-0 md:flex-row">
         <p
           onClick={() => setShowContent('description')}
           className={
             showContent == 'description'
-              ? 'border-t-4 border-primary pt-2 font-semibold'
-              : 'pt-2 font-semibold'
+              ? 'border-t-4 border-primary pt-2 font-semibold hover:cursor-pointer'
+              : 'pt-2 font-semibold hover:cursor-pointer'
           }
         >
           Description
@@ -31,8 +24,8 @@ const ProductDetailsSection = ({ data }: any) => {
           onClick={() => setShowContent('addInfo')}
           className={
             showContent == 'addInfo'
-              ? 'border-t-4 border-primary pt-2 font-semibold'
-              : 'pt-2  font-semibold '
+              ? 'border-t-4 border-primary pt-2 font-semibold hover:cursor-pointer'
+              : 'pt-2  font-semibold hover:cursor-pointer '
           }
         >
           Additional Information
@@ -41,13 +34,13 @@ const ProductDetailsSection = ({ data }: any) => {
           onClick={() => setShowContent('review')}
           className={
             showContent == 'review'
-              ? 'border-t-4 border-primary pt-2 font-semibold'
-              : 'pt-2 font-semibold'
+              ? 'border-t-4 border-primary pt-2 font-semibold hover:cursor-pointer'
+              : 'pt-2 font-semibold hover:cursor-pointer'
           }
         >
           Reviews ({data[0].noOfReviews})
         </p>
-      </motion.div>
+      </div>
       {showContent == 'description' ? (
         <ProductDescription
           longDesc={data[0].longDesc}

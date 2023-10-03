@@ -65,7 +65,9 @@ const footer = () => {
         <div className="flex flex-col gap-6 p-3">
           <h2 className="trading-wider  text-lg  font-medium">Subscribe</h2>
           <Input type="email" placeholder="Your email address .." />
-          <Button variant="default">Subscribe</Button>
+          <Button className="text-white" variant="default">
+            Subscribe
+          </Button>
         </div>
       </div>
       <div className="mx-auto w-full p-6 text-center">

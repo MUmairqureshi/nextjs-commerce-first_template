@@ -18,8 +18,12 @@ const RightSideContent = ({ data }: any) => {
         <div className="h-4 w-4 rounded-full bg-green-500" />
       </div>
       <div className="mt-6 flex gap-4 border-y-2 border-gray-200 py-6">
-        <Input defaultValue={1} className="w-16 bg-white" type="number" />
-        <Button>Add To Cart</Button>
+        <Input
+          defaultValue={1}
+          className="w-16 bg-white focus:border-0 focus:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0"
+          type="number"
+        />
+        <Button className="text-white">Add To Cart</Button>
       </div>
       <div className="mt-4 flex gap-10">
         <p className="mb-3 text-sm  text-black">SKU: N/A</p>

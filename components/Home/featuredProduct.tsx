@@ -19,7 +19,7 @@ const FeaturedProduct = () => {
     <div className="flex max-w-full flex-col items-center justify-center gap-20 bg-background py-20">
       <motion.div
         viewport={{ once: false }}
-        initial={{ opacity: 0, y: -40 }}
+        initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 2 }}
         className="flex flex-col items-center justify-center gap-5"
@@ -36,9 +36,9 @@ const FeaturedProduct = () => {
             <motion.div
               key={ind}
               viewport={{ once: false }}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.6, delay: 0.3 * ind }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.4, delay: 0.2 * ind }}
             >
               <StyleCard
                 title={item.title}

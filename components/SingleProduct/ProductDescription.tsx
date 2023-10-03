@@ -6,13 +6,7 @@ import Image from 'next/image';
 const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
   return (
     <div className="mt-16 w-full">
-      <motion.div
-        viewport={{ once: false }}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
-        className="mb-10"
-      >
+      <div className="mb-10">
         <h3 className="m-0 mb-3 p-0 text-xl font-semibold md:text-2xl">Product Description</h3>
         <p className="text-sm leading-8 md:text-base">
           {longDesc}
@@ -21,7 +15,7 @@ const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nihil esse quibusdam
           nemo atque consequatur velit numquam beatae exercitationem culpa.<p></p>
         </p>
-      </motion.div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-3">
         <motion.div
           viewport={{ once: false }}
@@ -57,7 +51,7 @@ const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
               <motion.div
                 key={i}
                 viewport={{ once: false }}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 * i }}
               >
@@ -69,7 +63,7 @@ const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
         </div>
         <motion.div
           viewport={{ once: false }}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="flex flex-col justify-center space-y-4 bg-white px-6 py-6 md:px-12 lg:p-20"
