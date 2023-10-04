@@ -19,7 +19,7 @@ const Login = () => {
           email: formData.email,
           password: formData.password
         })
-        .then((response) => {
+        .then((response: any) => {
           if (response.data.status === 200) {
             console.log('success', response.data.message, response);
             window.alert(response.data.message);
@@ -28,7 +28,7 @@ const Login = () => {
             window.alert(response.data.message);
           }
         })
-        .catch((error) => {
+        .catch((error: any) => {
           console.log('err', error);
         });
     } catch (error) {
@@ -53,7 +53,7 @@ const Login = () => {
                 placeholder="Email"
                 id="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e: any) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
             <div className="grid w-full max-w-sm items-center gap-1.5 border-sky-500	 text-slate-800	">
@@ -62,7 +62,7 @@ const Login = () => {
                 placeholder="Password"
                 id="password"
                 value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                onChange={(e: any) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
             <div className="grid  w-full max-w-sm items-center gap-1.5 text-slate-200 shadow-xl ">

@@ -11,7 +11,6 @@ import ProductDetailsSection from 'components/SingleProduct/ProductDetailsSectio
 import RelatedProducts from 'components/SingleProduct/RelatedProducts';
 import RightSideContent from 'components/SingleProduct/RightSideContent';
 import { motion } from 'framer-motion';
-import { FC } from 'react';
 
 interface pageProps {
   params: { slug: any };
@@ -52,7 +51,7 @@ const data = [
   }
 ];
 
-const SingleProduct: FC<pageProps> = ({ params }) => {
+const SingleProduct = ({ params }: pageProps) => {
   return (
     <div className="flex w-full justify-center bg-background">
       <div className="max-w-screen-xl bg-background px-6 py-16">
