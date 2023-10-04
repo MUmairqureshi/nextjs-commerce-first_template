@@ -13,7 +13,7 @@ export default async function Footer() {
   // const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="mt-20 bg-white text-center lg:text-start">
+    <footer className="bg-white text-center lg:mt-20 lg:text-start">
       <h3 className="border-b border-t border-gray-400 px-8 py-8 text-lg font-bold lg:px-20 lg:text-2xl">
         SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.
       </h3>
