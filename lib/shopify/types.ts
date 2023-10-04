@@ -47,6 +47,7 @@ export type Menu = {
 
 export type Money = {
   amount: string;
+  price: number;
   currencyCode: string;
 };
 
@@ -76,11 +77,11 @@ export type ProductVariant = {
   id: string;
   title: string;
   availableForSale: boolean;
+  price: Money;
   selectedOptions: {
     name: string;
     value: string;
   }[];
-  price: Money;
 };
 
 export type SEO = {
