@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-import img from 'assets/images/aboutmg2.jpg';
+import img from 'components/images/aboutmg2.jpg';
 import { motion } from 'framer-motion';
 const WhoWeAre = () => {
   return (

@@ -1,6 +1,6 @@
 'use client';
 import Image, { StaticImageData } from 'next/image';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const ImageCarousel = ({ imgData }: { imgData: StaticImageData[] }) => {
   const [selectedImage, setSelectedImage] = useState(imgData[0]);
@@ -8,7 +8,6 @@ const ImageCarousel = ({ imgData }: { imgData: StaticImageData[] }) => {
     <>
       <div className="border-content box-content grid h-full w-full  grid-cols-4 gap-4 ">
         <div className="border-content col-span-4 box-content grid  w-full overflow-hidden">
-          {/* @ts-ignore */}
           <Image src={selectedImage} className="h-full w-full" alt="Image" objectFit="cover" />
         </div>
         {imgData &&

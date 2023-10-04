@@ -1,9 +1,8 @@
 import Image from 'next/image';
-
-import world from 'assets/icons/globe-2.png';
-import happy from 'assets/icons/happy.png';
-import offers from 'assets/icons/offers.png';
-import security from 'assets/icons/security.png';
+import world from '../icons/globe-2.png';
+import happy from '../icons/happy.png';
+import offers from '../icons/offers.png';
+import security from '../icons/security.png';
 const Data = [
   {
     title: 'Worldwide Shipping',

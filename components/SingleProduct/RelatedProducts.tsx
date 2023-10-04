@@ -1,6 +1,4 @@
-'use client';
-import StyleCard from 'components//StyleCard';
-import { motion } from 'framer-motion';
+import StyleCard from '../Cards/StyleCard';
 const Data = [
   { title: 'DNK Blue Shores', category: 'Men', price: '400-1000', stars: 4 },
   { title: 'XYZ Red Waves', category: 'Women', price: '350-700', stars: 5 },
@@ -13,20 +11,20 @@ const RelatedProducts = () => {
       <div className="flex  flex-wrap justify-start gap-x-6 gap-y-12 md:justify-start lg:gap-x-10 lg:gap-y-16 ">
         {Data.map((item, ind) => {
           return (
-            <motion.div
-              key={ind}
-              viewport={{ once: false }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.4 * ind }}
-            >
-              <StyleCard
-                title={item.title}
-                category={item.category}
-                price={item.price}
-                stars={item.stars}
-              />
-            </motion.div>
+            // <motion.div
+            //   key={ind}
+            //   viewport={{ once: false }}
+            //   initial={{ opacity: 0 }}
+            //   whileInView={{ opacity: 1 }}
+            //   transition={{ duration: 1.2, delay: 0.4 * ind }}
+            // >
+            <StyleCard
+              title={item.title}
+              category={item.category}
+              price={item.price}
+              stars={item.stars}
+            />
+            // </motion.div>
           );
         })}
       </div>

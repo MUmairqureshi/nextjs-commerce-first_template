@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import OurTeamCard from 'components/OurTeamCard';
+import OurTeamCard from 'components/Cards/OurTeamCard';
 
 interface PropType {
   img: any;

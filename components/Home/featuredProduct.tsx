@@ -1,5 +1,5 @@
 'use client';
-import StyleCard from 'components/StyleCard';
+import StyleCard from '../Cards/StyleCard';
 
 const Data = [
   { title: 'DNK Blue Shores', category: 'Men', price: '400-1000', stars: 4 },

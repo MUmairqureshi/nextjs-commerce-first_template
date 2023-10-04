@@ -1,4 +1,4 @@
-import logo from 'assets/logo/logo.png';
+import logo from 'components/images/dnk_logo_black.png';
 import Image from 'next/image';
 import { Button } from 'src/components/ui/button';
 import { Input } from 'src/components/ui/input';

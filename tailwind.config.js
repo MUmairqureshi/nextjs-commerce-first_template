@@ -17,12 +17,15 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        image: 'url(/SpecEdi_Bg.png)',
+        image: "url('/components/images/SpecEdi_Bg.png')",
         AboutUsBanner: 'url(/AboutUsBanner.jpg)',
         FollowUsBanner: 'url(/AboutUsBanner2.jpg)',
         'hero-bg':
           "url('https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2019/12/home-new-bg-free-img.jpg')",
         'footer-texture': "url('/img/footer-texture.png')"
+      },
+      gridTemplateColumns: {
+        table: '200px auto'
       },
       colors: {
         background: '#f5f7f9',

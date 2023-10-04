@@ -1,7 +1,7 @@
-import img from 'assets/images/image1.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiTwotoneStar } from 'react-icons/ai';
+import img from '../images/image1.jpg';
 
 interface PropData {
   title: string;
