@@ -1,5 +1,5 @@
 import Wrapper from 'components/Wrapper';
-import Hero from 'components/views/hero';
+import { Hero } from 'components/views/hero';
 import LogoRotator from 'components/views/logo-rotator';
 import ProductList from 'components/views/product-list';
 import { Sales } from 'components/views/sales-component';

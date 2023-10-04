@@ -4,7 +4,15 @@ import end_of_season_sale_accessories from '/components/images/end_of_season_sal
 import end_of_season_sale_all from '/components/images/end_of_season_sale_all.jpeg';
 import end_of_season_sale_men from '/components/images/end_of_season_sale_men.jpeg';
 import end_of_season_sale_women from '/components/images/end_of_season_sale_women.jpeg';
-export const Sales = () => {
+import { getCollectionProducts } from 'lib/shopify';
+import { Product } from 'lib/shopify/types';
+function Salespage({
+  childrenfirstProduct,
+  womensshopfirstProduct,
+  mensshopfirstProduct,
+  seasonsalefirstProduct,
+  onallproductfirstProduct
+}: any) {
   return (
     <div className="flex flex-col items-center justify-center gap-y-6 py-20">
       <div className="flex flex-col gap-y-6 md:flex-row md:gap-x-6 lg:gap-x-4 xl:gap-x-6">
@@ -12,7 +20,7 @@ export const Sales = () => {
           <div className="relative mx-auto h-[290px] w-[280px] md:h-[280px] md:w-[320px] lg:mx-0 lg:h-[280px] lg:w-[455px] xl:h-[470px] xl:w-[580px] 2xl:h-[280px] 2xl:w-[490px]">
             {/* Image */}
             <Image
-              src={end_of_season_sale}
+              src={seasonsalefirstProduct.featuredImage.url}
               alt="50% off"
               height={500}
               width={400}
@@ -32,7 +40,7 @@ export const Sales = () => {
         <div className="relative flex-1">
           <div className=" relative mx-auto h-[290px] w-[270px] md:h-[280px] md:w-[320px] lg:mx-0 lg:h-[280px] lg:w-[455px] xl:h-[470px] xl:w-[580px] 2xl:h-[280px] 2xl:w-[490px]">
             <Image
-              src={end_of_season_sale_all}
+              src={mensshopfirstProduct.featuredImage.url}
               alt="50% off"
               height={500}
               width={400}
@@ -54,7 +62,7 @@ export const Sales = () => {
         <div className="relative">
           <div className=" relative mx-auto h-[290px] w-[270px] md:h-[280px] md:w-[210px] lg:mx-0 lg:h-[280px] lg:w-[300px] xl:h-[470px] xl:w-[380px] 2xl:h-[280px] 2xl:w-[320px]">
             <Image
-              src={end_of_season_sale_men}
+              src={onallproductfirstProduct.featuredImage.url}
               alt="50% off"
               height={500}
               width={400}
@@ -71,7 +79,7 @@ export const Sales = () => {
         <div className="relative">
           <div className=" relative mx-auto h-[290px] w-[270px] md:h-[280px] md:w-[210px] lg:mx-0 lg:h-[280px] lg:w-[303px] xl:h-[470px] xl:w-[383px] 2xl:h-[280px] 2xl:w-[317px]">
             <Image
-              src={end_of_season_sale_women}
+              src={childrenfirstProduct.featuredImage.url}
               alt="50% off"
               height={500}
               width={400}
@@ -86,7 +94,7 @@ export const Sales = () => {
         <div className="relative">
           <div className=" relative mx-auto h-[290px] w-[270px] md:h-[280px] md:w-[210px] lg:mx-0 lg:h-[280px] lg:w-[300px] xl:h-[470px] xl:w-[380px] 2xl:h-[280px] 2xl:w-[320px]">
             <Image
-              src={end_of_season_sale_accessories}
+              src={childrenfirstProduct.featuredImage.url}
               alt="50% off"
               height={500}
               width={400}
@@ -101,4 +109,62 @@ export const Sales = () => {
       </div>
     </div>
   );
-};
+}
+
+export async function Sales() {
+  // Collections that start with `hidden-*` are hidden from the search page.
+
+  const onallproduct = await getCollectionProducts({
+    collection: 'All-on-all-product'
+  });
+
+  if (!onallproduct[0]) return null;
+
+  const [onallproductfirstProduct] = onallproduct;
+
+  const seasonsale = await getCollectionProducts({
+    collection: 'All-end-Off-season-sale'
+  });
+
+  if (!seasonsale[0]) return null;
+
+  const [seasonsalefirstProduct] = seasonsale;
+
+  const mensshop = await getCollectionProducts({
+    collection: 'All-mens-shop'
+  });
+
+  if (!mensshop[0]) return null;
+
+  const [mensshopfirstProduct] = mensshop;
+
+  const womensshop = await getCollectionProducts({
+    collection: 'all-women-shop'
+  });
+
+  if (!womensshop[0]) return null;
+
+  const [womensshopfirstProduct] = womensshop;
+
+  // All: Children-Cloths
+  const children = await getCollectionProducts({
+    collection: 'all-children-cloths'
+  });
+
+  if (!children[0]) return null;
+
+  const [childrenfirstProduct] = children;
+  return (
+    <section>
+      <Salespage
+        childrenfirstProduct={childrenfirstProduct}
+        womensshopfirstProduct={womensshopfirstProduct}
+        mensshopfirstProduct={mensshopfirstProduct}
+        seasonsalefirstProduct={seasonsalefirstProduct}
+        onallproductfirstProduct={onallproductfirstProduct}
+        priority={true}
+        size={'full'}
+      />
+    </section>
+  );
+}
