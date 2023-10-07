@@ -23,15 +23,6 @@ export default async function HomePage() {
           <ShopThisLook />
         </Wrapper>
         {/* <Carousel /> */}
-      {/* <Button>Click me</Button> */}
-      {/* </div> */}
-      {/* <ThreeItemGrid />
-      <Suspense>
-
-        <Suspense>
-          <Footer />
-        </Suspense>
-      </Suspense> */}
     </>
   );
 }
