@@ -1,10 +1,4 @@
-import Wrapper from 'components/Wrapper';
-import { Hero } from 'components/views/hero';
-import LogoRotator from 'components/views/logo-rotator';
-import ProductList from 'components/views/product-list';
-import { Sales } from 'components/views/sales-component';
-import { ShopByCategory } from 'components/views/shop-by-category';
-import { ShopThisLook } from 'components/views/shop-this-look';
+import Home from './home/page';
 
 export const runtime = 'edge';
 
@@ -18,7 +12,8 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <div>
+      <Home />
+      {/* <div>
         <Hero />
         <Wrapper>
           <LogoRotator />
@@ -28,8 +23,8 @@ export default async function HomePage() {
           <ShopThisLook />
         </Wrapper>
         {/* <Carousel /> */}
-        {/* <Button>Click me</Button> */}
-      </div>
+      {/* <Button>Click me</Button> */}
+      {/* </div> */}
       {/* <ThreeItemGrid />
       <Suspense>
 
