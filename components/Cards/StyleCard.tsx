@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { AiTwotoneStar } from 'react-icons/ai';
+// import { AiTwotoneStar } from 'react-icons/ai';
 import img from '../images/image1.jpg';
 
 interface PropData {
@@ -12,7 +12,7 @@ interface PropData {
 const StyleCard = ({ title, category, price, stars }: PropData) => {
   const url = title.split(' ').join('-');
   return (
-    <div className="border-content group relative box-content h-[300px] w-[210px] overflow-hidden rounded-sm  hover:cursor-pointer hover:brightness-105">
+    <div className="border-content group relative box-content w-[210px] overflow-hidden rounded-sm  hover:cursor-pointer hover:brightness-105">
       <Link href={`/product/${url}`}>
         <div className="border-content box-content h-[55%] w-full transform overflow-hidden transition-transform group-hover:scale-105 lg:h-3/5">
           <Image
@@ -38,14 +38,14 @@ const StyleCard = ({ title, category, price, stars }: PropData) => {
             <div className="h-3 w-3 rounded-full bg-red-500" />
             <div className="h-3 w-3 rounded-full bg-green-500" />
           </div>
-          <div className="mt-1 flex gap-2">
+          {/* <div className="mt-1 flex gap-2">
             {[...Array(stars)].map((e) => (
               <AiTwotoneStar color="#F59E0B" size="18 " />
             ))}
             {[...Array(5 - stars)].map((e) => (
               <AiTwotoneStar color="#D9D9D9" size="18 " />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
