@@ -1,7 +1,7 @@
 // import Hero from "@/components/Home/hero";
 import ChooseUs from 'components/Home/ChooseUs';
-import FeaturedProduct from 'components/Home/featuredProduct';
-import SpecialEdition from 'components/Home/specialEdition';
+import { FeaturedProduct } from 'components/Home/featuredProduct';
+import { SpecialEdition } from 'components/Home/specialEdition';
 import Wrapper from 'components/Wrapper';
 import { Hero } from 'components/views/hero';
 
