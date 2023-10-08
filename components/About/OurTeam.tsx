@@ -37,7 +37,7 @@ const OurTeam = ({ TeamData }: { TeamData: PropType[] }) => {
                 viewport={{ once: false }}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.4, delay: 0.3 * ind }}
+                transition={{ duration: 1.4, delay: 0.2 * ind }}
               >
                 <OurTeamCard key={ind} data={item} />
               </motion.div>
