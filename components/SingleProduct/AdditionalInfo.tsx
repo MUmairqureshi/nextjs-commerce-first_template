@@ -5,7 +5,7 @@ type AddInfoItem = {
   value: string | string[] | number;
 };
 
-const AdditionalInfo = ({ data }: { data: AddInfoItem[] }) => {
+const AdditionalInfo = ({ data }: { data: any }) => {
   return (
     <motion.div
       viewport={{ once: false }}
@@ -14,11 +14,11 @@ const AdditionalInfo = ({ data }: { data: AddInfoItem[] }) => {
       transition={{ duration: 1.6 }}
       className="mt-10 w-full border-2 border-gray-200"
     >
-      {data.map((e: AddInfoItem, i: number) => (
-        <div key={i} className="grid-cols-table grid border-gray-200">
-          <p className="border-b-2 border-r-2 border-gray-200 p-2">{e.label}</p>
+      {data.map((e: any, i: number) => (
+        <div key={i} className="grid grid-cols-table border-gray-200">
+          <p className="border-b-2 border-r-2 border-gray-200 p-2">{e.name}</p>
           <p className="border-b-2 border-gray-200 p-2">
-            {Array.isArray(e.value) ? e.value.join(', ') : e.value}
+            {Array.isArray(e.values) ? e.values.join(', ') : e.values}
           </p>
         </div>
       ))}

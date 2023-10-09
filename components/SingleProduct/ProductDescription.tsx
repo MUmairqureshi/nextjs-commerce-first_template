@@ -3,18 +3,29 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
+const subDesc = [
+  {
+    heading: 'Ut enim ad minim',
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.'
+  },
+  {
+    heading: 'Ut enim ad minim',
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.'
+  },
+  {
+    heading: 'Ut enim ad minim',
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.'
+  }
+];
+const more =
+  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem soluta corrupti perferendis modi quasi et voluptatum. Dicta, ipsa? Explicabo, quo.';
+
+const ProductDescription = ({ longDesc, subImg }: any) => {
   return (
     <div className="mt-16 w-full">
       <div className="mb-10">
         <h3 className="m-0 mb-3 p-0 text-xl font-semibold md:text-2xl">Product Description</h3>
-        <p className="text-sm leading-8 md:text-base">
-          {longDesc}
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nihil esse quibusdam
-          nemo atque consequatur velit numquam beatae exercitationem culpa.<p></p>
-        </p>
+        <p className="text-sm leading-8 md:text-base">{longDesc}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-3">
         <motion.div
@@ -24,7 +35,14 @@ const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
           transition={{ duration: 1 }}
           className="h-full w-full"
         >
-          <Image src={subImg[0]} className="h-full w-full" alt="Image" objectFit="cover" />
+          <Image
+            src={subImg[0].url}
+            width={100}
+            height={100}
+            className="h-full w-full"
+            alt={subImg[0].altText}
+            objectFit="cover"
+          />
         </motion.div>
         <motion.div
           viewport={{ once: false }}
@@ -33,7 +51,14 @@ const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
           transition={{ duration: 1 }}
           className="h-full w-full"
         >
-          <Image src={subImg[1]} className="h-full w-full" alt="Image" objectFit="cover" />
+          <Image
+            src={subImg.length < 2 ? subImg[0].url : subImg[1].url}
+            width={100}
+            height={100}
+            className="h-full w-full"
+            alt={subImg.length < 2 ? subImg[0].altText : subImg[1].altText}
+            objectFit="cover"
+          />
         </motion.div>
         <motion.div
           viewport={{ once: false }}
@@ -42,11 +67,18 @@ const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
           transition={{ duration: 1 }}
           className="h-full w-full"
         >
-          <Image src={subImg[2]} className="h-full w-full" alt="Image" objectFit="cover" />
+          <Image
+            src={subImg.length < 3 ? subImg[0].url : subImg[2].url}
+            width={100}
+            height={100}
+            className="h-full w-full"
+            alt={subImg.length < 3 ? subImg[0].altText : subImg[2].altText}
+            objectFit="cover"
+          />
         </motion.div>
 
         <div className=" flex flex-col justify-center space-y-4 bg-white px-6 py-6 md:px-12 lg:p-20">
-          {subDesc.map((e: { heading: string; desc: string }, i: number) => {
+          {subDesc?.map((e: { heading: string; desc: string }, i: number) => {
             return (
               <motion.div
                 key={i}
@@ -78,7 +110,14 @@ const ProductDescription = ({ longDesc, subDesc, subImg, more }: any) => {
           transition={{ duration: 1 }}
           className="h-full w-full"
         >
-          <Image src={subImg[3]} className="h-full w-full" alt="Image" objectFit="cover" />
+          <Image
+            src={subImg.length < 4 ? subImg[0].url : subImg[3].url}
+            width={100}
+            height={100}
+            className="h-full w-full"
+            alt={subImg.length < 4 ? subImg[0].altText : subImg[3].altText}
+            objectFit="cover"
+          />
         </motion.div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import image from 'components/images/blue_tshirt_darkblue.jpg';
 import StyleCard from '../Cards/StyleCard';
 const Data = [
   { title: 'DNK Blue Shores', category: 'Men', price: '400-1000', stars: 4 },
@@ -18,12 +19,7 @@ const RelatedProducts = () => {
             //   whileInView={{ opacity: 1 }}
             //   transition={{ duration: 1.2, delay: 0.4 * ind }}
             // >
-            <StyleCard
-              title={item.title}
-              category={item.category}
-              price={item.price}
-              stars={item.stars}
-            />
+            <StyleCard title={item.title} image={image} price={item.price} url={item.title} />
             // </motion.div>
           );
         })}
