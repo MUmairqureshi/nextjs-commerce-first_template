@@ -21,12 +21,12 @@ const HeroText = () => {
         </h2>
       </motion.div>
 
-      <div className="mt-10 flex flex-col items-center justify-center font-medium md:flex-row md:items-start md:justify-start md:gap-x-4 lg:max-w-none">
+      <div className="mt-8 gap-x-4 md:flex">
         <Link href={'/'}>
           <Button className="w-full bg-white text-black">SHOP NOW</Button>
         </Link>
         <Link href={'/'}>
-          <Button variant="outline" className="w-full bg-transparent">
+          <Button variant="outline" className="mt-4 w-full bg-transparent md:mt-0">
             FIND MORE
           </Button>
         </Link>

@@ -1,6 +1,5 @@
 import { getCollectionProducts } from 'lib/shopify';
 import MovingProducts from './moving-products';
-import { DivideCircleIcon } from 'lucide-react';
 
 export const Category = ({
   childrenjogerfirstProduct,
@@ -12,7 +11,7 @@ export const Category = ({
   womentrouserfirstProduct
 }: any) => {
   return (
-    <div className="py-20">
+    <div className="py-10">
       <div className="mb-16 text-center text-2xl font-bold md:text-4xl">Shop By Categories</div>
       <MovingProducts
         childrenjogerfirstProduct={childrenjogerfirstProduct}

@@ -20,10 +20,10 @@ const ProductCart: FC<{ item: Product }> = ({ item }) => {
       initial={{ opacity: 0, y: '10vh' }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative mx-auto"
+      className="relative mx-auto max-w-[125px] md:max-w-sm"
       viewport={{ once: true }}
     >
-      <div className="h-[145px] w-[125px] md:h-[230px] md:w-[210px] lg:h-[200px] lg:w-[180px] xl:h-[270px] xl:w-[250px]">
+      <div className="h-[145px] w-[125px] md:h-[230px] md:w-[210px] lg:h-[200px] lg:w-[180px] xl:h-[260px] xl:w-[240px]">
         <Image
           src={selectedColorOption ? selectedColorOption.imageSrc : item.imageUrl}
           alt="Product"
