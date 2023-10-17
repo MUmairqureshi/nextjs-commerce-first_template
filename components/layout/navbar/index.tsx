@@ -1,41 +1,25 @@
-'use client';
+// 'use client';
 import { motion } from 'framer-motion';
 import { ShoppingBag, User2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MobileMenu from './mobile-menu';
 import logo from '/components/images/dnk_logo.png';
+import { getMenu } from 'lib/shopify';
 
 // const { SITE_NAME } = process.env;
 
-export default function Navbar() {
-  // const menu = await getMenu('next-js-frontend-header-menu');
-  const menu = [
-    {
-      title: 'EVERYTHING',
-      path: '/'
-    },
-    {
-      title: 'MEN',
-      path: '/category/men'
-    },
-    {
-      title: 'WOMEN',
-      path: '/WOMEN'
-    },
-    {
-      title: 'ACCESSORIES',
-      path: '/ACCESSORIES'
-    }
-  ];
+export default async function Navbar() {
+  const menu = await getMenu('main-menu');
 
   return (
-    <motion.section
+    <div className="relative left-0 top-0 z-50 w-full bg-black  bg-opacity-10">
+      {/* <motion.section
       initial={{ y: '-100vh' }}
       animate={{ y: 0 }}
       transition={{ duration: 1 }}
       className="relative left-0 top-0 z-50 w-full bg-black  bg-opacity-10"
-    >
+    > */}
       <div className="hidden items-center justify-between bg-[#0274be] bg-opacity-10 px-6 py-8 lg:flex lg:py-6">
         <div className="hidden flex-auto items-center justify-between lg:flex">
           <Link href={'../../'}>
@@ -74,7 +58,9 @@ export default function Navbar() {
         </div>
       </div>
       <MobileMenu menu={menu} />
-    </motion.section>
+    </div>
+
+    // </motion.section>
     // <nav className="relative flex items-center justify-between p-4 lg:px-6">
     //   <div className="block flex-none md:hidden">
     //     <MobileMenu menu={menu} />

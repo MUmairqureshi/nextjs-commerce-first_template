@@ -11,7 +11,6 @@ import { Sales } from 'components/views/sales-component';
 import { ShopByCategory } from 'components/views/shop-by-category';
 import { ShopThisLook } from 'components/views/shop-this-look';
 export const runtime = 'edge';
-// import Layout from "@/components/layout/layout";
 const Home = () => {
   return (
     // <Layout>

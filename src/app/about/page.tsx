@@ -20,8 +20,8 @@ const About = () => {
   return (
     <>
       <div className="w-full  bg-cover bg-fixed bg-no-repeat ">
-        <Image
-          src={img}
+        <img
+          src="https://ideogram.ai/api/images/direct/t1AVJJ1LQBycwC4mxCKzXA"
           className={`absolute -z-40 h-full w-full max-w-screen-xl bg-cover bg-fixed bg-no-repeat brightness-50 filter`}
           alt="bg-image"
         />
