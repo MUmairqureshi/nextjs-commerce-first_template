@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { AiTwotoneStar } from 'react-icons/ai';
-import img from '../images/image1.jpg';
-import { Product } from 'lib/shopify/types';
 
-interface PropData {
-  title: string;
-  category: string;
-  price: string;
-  stars: number;
-}
+// interface PropData {
+//   title: string;
+//   category: string;
+//   price: string;
+//   stars: number;
+// }
 const StyleCard = ({
   title,
   price,
@@ -23,9 +20,9 @@ const StyleCard = ({
 }) => {
   // const url = title.split(' ').join('-');
   return (
-    <div className="border-content hover:brightness-805 group relative box-content h-[470px] w-[280px] overflow-hidden  rounded-sm hover:cursor-pointer">
+    <div className="border-content hover:brightness-805 group relative box-content h-full w-[280px] overflow-hidden  rounded-sm hover:cursor-pointer">
       <Link href={`/product/${url}`}>
-        <div className="border-content box-content h-[55%] w-full transform overflow-hidden transition-transform group-hover:scale-105 lg:h-3/5">
+        <div className="border-content box-content h-[200px] w-full transform overflow-hidden transition-transform group-hover:scale-105 lg:h-[260px] ">
           <Image
             src={image}
             className="h-full w-full overflow-hidden"
