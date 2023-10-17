@@ -3,9 +3,48 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, User2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Sheet, SheetContent, SheetTrigger } from 'src/components/ui/sheet';
 import MobileMenu from './mobile-menu';
+import Search from './search';
 import logo from '/components/images/dnk_logo.png';
 import { getMenu } from 'lib/shopify';
+
+const SHEET_SIDES = ['top'] as const;
+
+type SheetSide = (typeof SHEET_SIDES)[number];
+
+export function SheetSide() {
+  return (
+    <div className="grid grid-cols-2 gap-2 ">
+      {SHEET_SIDES.map((side) => (
+        <Sheet key={side}>
+          <SheetTrigger asChild>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-search -mr-4"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </div>
+          </SheetTrigger>
+          <SheetContent side={side} className="bg-white">
+            <Search />
+          </SheetContent>
+        </Sheet>
+      ))}
+    </div>
+  );
+}
 
 // const { SITE_NAME } = process.env;
 
@@ -39,15 +78,16 @@ export default async function Navbar() {
             </ul>
           ) : null}
           <ul className="flex items-center gap-x-6 text-sm text-white">
+            <li>{SheetSide()}</li>
             <li>
               <Link href={'/'}>ABOUT</Link>
             </li>
             <li>
               <Link href={'/blog'}>BLOG</Link>
             </li>
-            <li className="font-semibold">
+            {/* <li className="font-semibold">
               <Link href={'/'}>$900.00</Link>
-            </li>
+            </li> */}
             <li>
               <ShoppingBag />
             </li>

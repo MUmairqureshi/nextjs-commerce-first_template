@@ -9,10 +9,47 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from 'src/components/ui/sheet';
+import Search from './search';
 import logo_mobile from '/components/images/logo_mobile.png';
 // import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 // import Search from './search';
+const SHEET_SIDES = ['top'] as const;
+
+type SheetSide = (typeof SHEET_SIDES)[number];
+
+export function SheetSide() {
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      {SHEET_SIDES.map((side) => (
+        <Sheet key={side}>
+          <SheetTrigger asChild>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-search -mr-3"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </div>
+          </SheetTrigger>
+          <SheetContent side={side} className="bg-white">
+            <Search />
+          </SheetContent>
+        </Sheet>
+      ))}
+    </div>
+  );
+}
 
 export default function MobileMenu({ menu }: { menu: Menu[] }) {
   const pathname = usePathname();
@@ -46,9 +83,10 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
         <Image className="items-center" src={logo_mobile} height={100} width={100} alt="logo" />
         <div className="flex items-center gap-x-4 lg:hidden">
           <ul className="flex gap-x-2">
-            <li className="font-semibold">
+            {/* <li className="font-semibold">
               <Link href={'/'}>$900.00</Link>
-            </li>
+            </li> */}
+            <li>{SheetSide()}</li>
             <li>
               <ShoppingBag />
             </li>

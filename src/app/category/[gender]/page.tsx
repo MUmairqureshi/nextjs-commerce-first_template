@@ -16,11 +16,11 @@ export default async function CategoryPage({ params }: { params: { gender: strin
 
   return (
     <section className="flex flex-col bg-slate-100">
-      <div className="my-20 flex flex-col-reverse gap-x-3 gap-y-8 lg:flex-row xl:px-8">
+      <div className="mx-1 mt-16 flex flex-col-reverse gap-y-8 px-1 md:mx-3 md:px-3 lg:flex-row xl:mx-8 xl:px-8 2xl:mx-80 2xl:px-80">
         <div className="basis-1/4">
           {/* <MenProductSideBar /> */}
 
-          <section className="px-2 md:px-4 lg:px-8">
+          <section className="lg:mx-4">
             {/* <SearchBar /> */}
             Search Bar
             <div className="py-16">
@@ -47,21 +47,23 @@ export default async function CategoryPage({ params }: { params: { gender: strin
             </div>
           </section>
         </div>
-        <div className="m-2 basis-3/4 bg-white md:m-4 lg:m-0 lg:mx-4">
+        <div className="basis-3/4 bg-white ">
           {/* <MenProducts /> */}
 
-          <section className="lg:py-22 p-5 lg:px-14 xl:px-28 xl:py-24">
+          <section className="p-5 lg:px-8 lg:py-16 xl:px-28">
             <h2 className="text-sm capitalize text-gray-500 lg:text-base">
               home / {params.gender}
             </h2>
-            <h1 className="py-6 text-3xl capitalize text-black lg:text-6xl">{params.gender}</h1>
+            <h1 className="py-6 text-3xl capitalize text-black md:text-5xl lg:text-6xl">
+              {params.gender}
+            </h1>
             <p className="mt-5 text-sm text-gray-900 lg:mt-12 lg:text-base">
               Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat
               consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per
               conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis
               dapibus condimentum sit amet a augue. Sed non neque elit sed ut.
             </p>
-            <div className="flex items-center justify-between py-4 text-sm lg:text-base">
+            <div className="flex flex-col justify-between gap-y-3 py-4 text-sm md:flex-row md:items-center lg:text-base">
               <div>Showing 1 – 12 of 14 results</div>
               <DefaultSortingDropdown />
               {/* <div>
@@ -88,7 +90,7 @@ export default async function CategoryPage({ params }: { params: { gender: strin
                   </Select>
                 </div> */}
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-4 py-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+            <div className="mt-4 grid grid-cols-2 gap-4 py-2 md:grid-cols-3">
               {products.map((product: any) => (
                 <ProductCart key={product._id} item={product} />
               ))}
