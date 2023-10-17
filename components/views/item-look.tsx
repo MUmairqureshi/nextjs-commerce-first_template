@@ -34,7 +34,7 @@ import { Product } from 'lib/shopify/types';
 //   }
 // ];
 
-const ItemLook = ({ fourProduct, item, secondProduct, priority }: any) => {
+const ItemLook = ({ fourProduct, item, secondProduct }: any) => {
   const filledStars = 2;
 
   return (

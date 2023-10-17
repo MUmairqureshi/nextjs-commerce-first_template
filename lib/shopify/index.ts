@@ -390,7 +390,7 @@ export async function getProductRecommendations(productId: string): Promise<Prod
       productId
     }
   });
-
+  console.log('heheh', res);
   return reshapeProducts(res.body.data.productRecommendations);
 }
 

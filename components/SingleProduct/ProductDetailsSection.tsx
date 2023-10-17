@@ -6,7 +6,7 @@ import Reviews from './Reviews';
 
 const ProductDetailsSection = ({ data }: any) => {
   const [showContent, setShowContent] = useState('description');
-
+  let noOfReviews = 8;
   return (
     <>
       <div className="mt-14 flex flex-col gap-x-8 gap-y-4 border-t-2 border-gray-200 p-0 md:flex-row">
@@ -38,18 +38,18 @@ const ProductDetailsSection = ({ data }: any) => {
               : 'pt-2 font-semibold hover:cursor-pointer'
           }
         >
-          Reviews ({data[0].noOfReviews})
+          Reviews ({noOfReviews})
         </p>
       </div>
       {showContent == 'description' ? (
         <ProductDescription
-          longDesc={data[0].longDesc}
-          subDesc={data[0].subDesc}
-          subImg={data[0].subImg}
-          more={data[0].more}
+          longDesc={data.description}
+          // subDesc={data?.subDesc}
+          subImg={data?.images}
+          // more={data?.more}
         />
       ) : showContent == 'addInfo' ? (
-        <AdditionalInfo data={data[0].addInfo} />
+        <AdditionalInfo data={data?.options} />
       ) : (
         <Reviews />
       )}

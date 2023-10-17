@@ -1,7 +1,7 @@
 // import Hero from "@/components/Home/hero";
 import ChooseUs from 'components/Home/ChooseUs';
-import FeaturedProduct from 'components/Home/featuredProduct';
-import SpecialEdition from 'components/Home/specialEdition';
+import { FeaturedProduct } from 'components/Home/featuredProduct';
+import { SpecialEdition } from 'components/Home/specialEdition';
 import Wrapper from 'components/Wrapper';
 import { Hero } from 'components/views/hero';
 
@@ -10,11 +10,17 @@ import ProductList from 'components/views/product-list';
 import { Sales } from 'components/views/sales-component';
 import { ShopByCategory } from 'components/views/shop-by-category';
 import { ShopThisLook } from 'components/views/shop-this-look';
+import { getCollectionProducts } from 'lib/shopify';
 export const runtime = 'edge';
-// import Layout from "@/components/layout/layout";
-const Home = () => {
+
+const Home = async () => {
+  const homepageItems = await getCollectionProducts({
+    collection: 'All-limited-time-offer'
+  });
+
+  const [firstProduct] = homepageItems;
+
   return (
-    // <Layout>
     <div>
       <Hero />
       <Wrapper>
@@ -24,20 +30,17 @@ const Home = () => {
         <ShopByCategory />
         <ShopThisLook />
       </Wrapper>
-      <div className="flex w-full justify-center bg-background">
-        <div className="flex w-full flex-col items-center ">
-          <div className={`w-full max-w-screen-xl bg-image bg-fixed bg-no-repeat object-cover`}>
-            <FeaturedProduct />
-            <SpecialEdition />
-            <ChooseUs bgColor="background" />
-          </div>
-        </div>
-      </div>
-      {/* <Carousel /> */}
-      {/* <Button>Click me</Button> */}
-    </div>
 
-    // </Layout>
+      <div
+        style={{ backgroundImage: `url(${firstProduct?.featuredImage.url})` }}
+        className="w-full bg-cover bg-fixed bg-center bg-no-repeat "
+      >
+        <FeaturedProduct />
+
+        <SpecialEdition SpecialEdition={firstProduct} />
+        <ChooseUs bgColor="background" />
+      </div>
+    </div>
   );
 };
 

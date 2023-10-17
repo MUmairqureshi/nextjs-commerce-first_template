@@ -1,27 +1,11 @@
-'use client';
+// 'use client';
+import { getCollectionProducts } from 'lib/shopify';
 import StyleCard from '../Cards/StyleCard';
+import { Product } from 'lib/shopify/types';
 
-const Data = [
-  { title: 'DNK Blue Shores', category: 'Men', price: '400-1000', stars: 4 },
-  { title: 'XYZ Red Waves', category: 'Women', price: '350-700', stars: 5 },
-  { title: 'ABC Green Fields', category: 'Unisex', price: '150-250', stars: 4 },
-  { title: 'PQR Ocean Breeze', category: 'Men', price: '500-1200', stars: 4 },
-  { title: 'XYZ Red Waves', category: 'Women', price: '350-700', stars: 5 },
-  { title: 'XYZ Red Waves', category: 'Women', price: '350-700', stars: 5 },
-  { title: 'LMN Golden Sands', category: 'Women', price: '250-400', stars: 3 },
-  { title: 'XYZ Red Waves', category: 'Women', price: '350-700', stars: 5 },
-  { title: 'ABC Green Fields', category: 'Unisex', price: '150-250', stars: 4 },
-  { title: 'ABC Green Fields', category: 'Unisex', price: '150-250', stars: 4 },
-  { title: 'ABC Green Fields', category: 'Unisex', price: '150-250', stars: 4 },
-  { title: 'PQR Ocean Breeze', category: 'Men', price: '500-1200', stars: 4 },
-  { title: 'XYZ Red Waves', category: 'Women', price: '350-700', stars: 5 },
-  { title: 'XYZ Red Waves', category: 'Women', price: '350-700', stars: 5 },
-  { title: 'LMN Golden Sands', category: 'Women', price: '250-400', stars: 3 },
-  { title: 'Elegant Black Tuxedo', category: 'Men', price: '800-1500', stars: 5 },
-  { title: 'Stylish Red Dress', category: 'Women', price: '400-800', stars: 4 },
-  { title: 'Cozy Unisex Sweater', category: 'Unisex', price: '50-100', stars: 4 }
-];
-const FeaturedProduct = () => {
+import { type } from 'os';
+
+function Featured({ homepageItems }: { homepageItems: Product[] }) {
   return (
     <div className="flex max-w-full flex-col items-center justify-center gap-20 bg-background py-20">
       <div className="flex flex-col items-center justify-center gap-5">
@@ -32,27 +16,29 @@ const FeaturedProduct = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-12 px-2 lg:gap-y-16 ">
-        {Data.map((item, ind) => {
+        {homepageItems.map((item) => {
           return (
-            // <motion.div
-            //   key={ind}
-            //   viewport={{ once: false }}
-            //   initial={{ opacity: 0 }}
-            //   whileInView={{ opacity: 1 }}
-            //   transition={{ duration: 1.4, delay: 0.2 * ind }}
-            // >
             <StyleCard
+              image={item.featuredImage.url}
               title={item.title}
-              category={item.category}
-              price={item.price}
-              stars={item.stars}
+              url={item.handle}
+              price={item.priceRange.maxVariantPrice.amount}
             />
-            // </motion.div>
           );
         })}
       </div>
     </div>
   );
-};
+}
 
-export default FeaturedProduct;
+export async function FeaturedProduct() {
+  const homepageItems = await getCollectionProducts({
+    collection: 'all-Feature-Product'
+  });
+
+  return (
+    <section>
+      <Featured homepageItems={homepageItems} />
+    </section>
+  );
+}
