@@ -52,7 +52,7 @@ export default async function Navbar() {
   const menu = await getMenu('main-menu');
 
   return (
-    <div className="relative left-0 top-0 z-50 w-full bg-black  bg-opacity-10">
+    <div className="relative     left-0 top-0 z-50 w-full bg-black  bg-opacity-10">
       {/* <motion.section
       initial={{ y: '-100vh' }}
       animate={{ y: 0 }}
