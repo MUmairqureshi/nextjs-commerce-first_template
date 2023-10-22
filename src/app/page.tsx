@@ -13,16 +13,6 @@ export default async function HomePage() {
   return (
     <>
       <Home />
-      {/* <div>
-        <Hero />
-        <Wrapper>
-          <LogoRotator />
-          <ProductList />
-          <Sales />
-          <ShopByCategory />
-          <ShopThisLook />
-        </Wrapper>
-        {/* <Carousel /> */}
     </>
   );
 }
