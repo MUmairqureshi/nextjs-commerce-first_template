@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 // import Hero from "@/components/Home/hero";
 import ChooseUs from 'components/Home/ChooseUs';
 import { FeaturedProduct } from 'components/Home/featuredProduct';
@@ -10,7 +11,7 @@ import ProductList from 'components/views/product-list';
 import { Sales } from 'components/views/sales-component';
 import { ShopByCategory } from 'components/views/shop-by-category';
 import { ShopThisLook } from 'components/views/shop-this-look';
-import { getCollectionProducts } from 'lib/shopify';
+import { getCollection, getCollectionProducts } from 'lib/shopify';
 export const runtime = 'edge';
 
 const Home = async () => {
@@ -20,12 +21,16 @@ const Home = async () => {
 
   const [firstProduct] = homepageItems;
 
+  const men = await getCollection('men');
+  const women = await getCollection('women');
+  const children = await getCollection('children');
+  // console.log(women?.handle)
   return (
     <div>
       <Hero />
       <Wrapper>
         <LogoRotator />
-        <ProductList />
+        <ProductList men={men} women={women} children={children} />
         <Sales />
         <ShopByCategory />
         <ShopThisLook />

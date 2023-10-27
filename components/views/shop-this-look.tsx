@@ -1,7 +1,5 @@
-import Image from 'next/image';
-import ItemLook from './item-look';
-import shop_by_look_right from '/components/images/shop_by_look_right.png';
 import { getCollectionProducts } from 'lib/shopify';
+import ItemLook from './item-look';
 
 export const ShopLook = ({ item, thirdProduct, secondProduct, fourProduct, priority }: any) => {
   return (
@@ -13,11 +11,11 @@ export const ShopLook = ({ item, thirdProduct, secondProduct, fourProduct, prior
             priority={priority}
             item={item}
             secondProduct={secondProduct}
-            fourProduct={fourProduct}
+            fourProduct={thirdProduct}
           />
         </div>
         <div className="flex-1">
-          <img src={thirdProduct.featuredImage.url} alt="product image"></img>
+          <img src={fourProduct.featuredImage.url} alt="product image"></img>
         </div>
       </div>
     </section>

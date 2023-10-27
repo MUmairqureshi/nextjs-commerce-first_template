@@ -1,35 +1,34 @@
 import Wrapper from 'components/Wrapper';
-import { articles } from 'components/product/article';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { Button } from 'src/components/ui/button';
-import ArticleCard from './article-card';
-import ArticleItem from './article-item';
-import TopArticleCard from './top-article-card';
-export default function Blog() {
-  const featureArticles = articles.filter((article) => article.category === 'feature');
-  const latestArticles = articles.filter((article) => article.category === 'latest-articles');
+import { getCollectionProducts } from 'lib/shopify';
+import Image from 'next/image';
 
-  const menu = [
-    {
-      title: 'EVERYTHING',
-      path: '../components/blog'
-    },
-    {
-      title: 'MEN',
-      path: '../../category/men'
-    },
-    {
-      title: 'WOMEN',
-      path: '/WOMEN'
-    }
-  ];
+export default async function Blog() {
+  // const featureArticles = articles.filter((article) => article.category === 'feature');
+  // const latestArticles = articles.filter((article) => article.category === 'latest-articles');
+  const product = await getCollectionProducts({
+    collection: 'community_blog'
+  });
+  if (product.length <= 0) return null;
+  // const menu = [
+  //   {
+  //     title: 'EVERYTHING',
+  //     path: '../components/blog'
+  //   },
+  //   {
+  //     title: 'MEN',
+  //     path: '../../category/men'
+  //   },
+  //   {
+  //     title: 'WOMEN',
+  //     path: '/WOMEN'
+  //   }
+  // ];
   return (
     <Wrapper>
       <section className="">
         {/* Top Line */}
 
-        <div className="flex flex-col items-start justify-between gap-y-3 py-2 lg:flex-row lg:items-center lg:px-20 lg:py-12">
+        {/* <div className="flex flex-col items-start justify-between gap-y-3 py-2 lg:flex-row lg:items-center lg:px-20 lg:py-12">
           <div className="mt-16 text-2xl font-bold md:text-4xl lg:mt-0">BLOGS</div>
           <div>
             {menu.length ? (
@@ -48,34 +47,40 @@ export default function Blog() {
             ) : null}
           </div>
           <div className="w-1/5">
-            {/* <Search/> */}
             Search
           </div>
-        </div>
+        </div> */}
 
         {/* Hero */}
-        <div className="mt-4 flex flex-col gap-x-10 gap-y-10 lg:flex-row">
-          {/* Left Div */}
-          <div className="flex-1">
+
+        {/* <div className="mt-4 flex flex-col gap-x-10 gap-y-10 lg:flex-row"> */}
+
+        {/* Left Div */}
+
+        {/* <div className="flex-1">
             <div className="py-2">
               {featureArticles.map((product: any) => (
                 <ArticleCard key={product._id} item={product} />
               ))}
             </div>
-          </div>
-          {/* Right Div */}
-          <div className="flex-1">
+          </div> */}
+
+        {/* Right Div */}
+
+        {/* <div className="flex-1">
             <div className="border-b-4 border-black pb-2 font-serif text-4xl uppercase">
               Top Articles
             </div>
             <div>
               <TopArticleCard />
             </div>
-          </div>
-        </div>
+          </div> */}
+
+        {/* </div> */}
 
         {/* Article list */}
-        <div>
+
+        {/* <div>
           <div className="mt-16 border-b-4 border-black pb-2 font-serif text-4xl uppercase lg:mt-9">
             Latest Article
           </div>
@@ -98,7 +103,45 @@ export default function Blog() {
             </Button>
           </div>
         </div>
+         */}
       </section>
+      <div className="w-full">
+        <div className="item-center mx-auto h-full  w-full max-w-screen-2xl p-6  px-6">
+          <div className=" max-h-88rem p-4 text-white ">
+            <div className="flex flex-col gap-8 md:flex-row">
+              <div className="bg-gray-100 p-6 font-serif  md:w-1/2">
+                <Image
+                  src={product[0]?.featuredImage.url || ''}
+                  alt={product[0]?.featuredImage.altText || ''}
+                  width={product[0]?.featuredImage.width}
+                  height={product[0]?.featuredImage.height}
+                  className="h-auto w-full"
+                />
+                <h2 className="mt-6 text-2xl font-semibold text-[#003445]">{product[0]?.title}</h2>
+                <p className="mt-2 text-base text-gray-600">{product[0]?.description}</p>{' '}
+                <button className="marker:  mt-2  rounded bg-white px-8 py-3 font-serif text-black transition-colors">
+                  READ MORE
+                </button>
+              </div>
+
+              <div className="bg-gray-100 p-6 font-serif md:w-1/2">
+                <Image
+                  src={product[1]?.featuredImage.url || ''}
+                  alt={product[1]?.featuredImage.altText || ''}
+                  width={product[0]?.featuredImage.width}
+                  height={product[0]?.featuredImage.height}
+                  className="h-auto w-full"
+                />
+                <h2 className="mt-6 text-2xl font-semibold text-[#003445]">{product[1]?.title}</h2>
+                <p className="mt-2 text-base text-gray-600">{product[1]?.description}</p>
+                <button className="marker:  mt-2  rounded bg-white px-8 py-3 font-serif text-black transition-colors">
+                  READ MORE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Wrapper>
   );
 }

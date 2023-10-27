@@ -1,3 +1,4 @@
+import Navbar from 'components/layout/navbar';
 import Home from './home/page';
 
 export const runtime = 'edge';
@@ -12,6 +13,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
+      <Navbar />
       <Home />
     </>
   );

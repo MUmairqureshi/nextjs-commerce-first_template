@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/filename-case */
 import image from 'components/images/blue_tshirt_darkblue.jpg';
 import StyleCard from '../Cards/StyleCard';
 const Data = [
@@ -19,7 +20,9 @@ const RelatedProducts = () => {
             //   whileInView={{ opacity: 1 }}
             //   transition={{ duration: 1.2, delay: 0.4 * ind }}
             // >
-            <StyleCard title={item.title} image={image} price={item.price} url={item.title} />
+            <div key={ind}>
+              <StyleCard title={item.title} image={image} price={item.price} url={item.title} />
+            </div>
             // </motion.div>
           );
         })}
