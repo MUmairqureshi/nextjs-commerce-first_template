@@ -52,7 +52,7 @@ const ProductCart: FC<{ item: Product }> = ({ item }) => {
             item.variants.map((variant) => (
               <button
                 key={variant.id}
-                className={`rounded-full bg-${variant.title.toLowerCase()}-600 h-6 w-6`}
+                className={`rounded-full fill-${variant.title.toLowerCase()}-600 h-6 w-6`}
                 onClick={() => handleColorClick(variant.title)}
               />
             ))}

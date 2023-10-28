@@ -30,7 +30,7 @@ const footer = async () => {
           SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS
         </h1>
       </div>
-      <div className="mx-auto grid border-b-2 border-gray-300 bg-yellow-400 px-8 py-16 md:grid-cols-6">
+      <div className="mx-auto grid border-b-2 border-gray-300 px-8 py-16 md:grid-cols-6">
         <div className="sm:col-span-2">
           <Image src={logo} alt="logo" />
           <h2 className="mt-2 text-xl	 font-bold leading-10 tracking-wider">
