@@ -24,18 +24,22 @@ const MenProducts = ({ items }: { items: Product[] }) => {
   };
 
   const pageButtons = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageButtons.push(
-      <Button
-        key={i}
-        className={`h-2 border border-black bg-black px-4 font-thin text-white hover:bg-black hover:text-white ${
-          currentPage === i ? 'border border-black' : ''
-        }`}
-        onClick={() => handlePageChange(i)}
-      >
-        {i}
-      </Button>
-    );
+  const maxPageButtons = 3;
+
+  for (let i = currentPage - 1; i <= currentPage + maxPageButtons; i++) {
+    if (i >= 1 && i <= totalPages) {
+      pageButtons.push(
+        <Button
+          key={i}
+          className={`h-2 border border-black bg-white px-4 text-black hover:bg-white ${
+            currentPage === i ? 'border border-black' : ''
+          }`}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </Button>
+      );
+    }
   }
   return (
     <div className="basis-8/12 lg:basis-3/4 xl:basis-4/5">
@@ -50,7 +54,7 @@ const MenProducts = ({ items }: { items: Product[] }) => {
           ))}
         </div>
         <div className="mt-12 flex gap-x-2 py-4 lg:mt-4 lg:py-10">
-          <Button className="h-2 border border-black bg-white px-2 text-black hover:bg-black hover:text-white">
+          <Button className="h-2 border border-black bg-white px-2 text-black hover:bg-white">
             <div>
               <div onClick={() => handlePageChange(currentPage - 1)}>
                 <ArrowLeft size={20} strokeWidth={2} />
@@ -58,7 +62,7 @@ const MenProducts = ({ items }: { items: Product[] }) => {
             </div>
           </Button>
           {pageButtons}
-          <Button className="h-2 border border-black bg-white px-2 text-black hover:bg-black hover:text-white">
+          <Button className="h-2 border border-black bg-white px-2 text-black hover:bg-white">
             <div>
               <div onClick={() => handlePageChange(currentPage + 1)}>
                 <ArrowRight size={20} strokeWidth={2} />

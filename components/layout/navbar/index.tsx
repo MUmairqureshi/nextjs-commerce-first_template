@@ -70,7 +70,7 @@ export default async function Navbar() {
               {menu.map((item) => (
                 <li key={item.title}>
                   <Link
-                    href={`/collection/${item.title.toLocaleLowerCase()}_collection`}
+                    href={`/collection/${item.title.toLocaleLowerCase()}_category`}
                     className="items-center text-sm font-semibold uppercase text-white"
                   >
                     {item.title}

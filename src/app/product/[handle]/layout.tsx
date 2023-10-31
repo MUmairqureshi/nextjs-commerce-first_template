@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Navbar from './navbar';
+import Navbar from 'src/app/collection/navbar';
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
