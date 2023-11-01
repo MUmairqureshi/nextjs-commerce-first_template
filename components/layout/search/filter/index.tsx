@@ -19,11 +19,11 @@ export default function FilterList({ list, title }: { list: ListItem[]; title?: 
   return (
     <>
       <nav>
-        {title ? <h3 className="hidden text-xs text-neutral-500 md:block">{title}</h3> : null}
-        <ul className="hidden md:block">
+        {title ? <h3 className="my-4 hidden text-xl lg:block">{title}</h3> : null}
+        <ul className="hidden lg:block ">
           <FilterItemList list={list} />
         </ul>
-        <ul className="md:hidden">
+        <ul className="lg:hidden">
           <FilterItemDropdown list={list} />
         </ul>
       </nav>

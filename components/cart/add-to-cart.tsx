@@ -26,14 +26,14 @@ export function AddToCart({
   );
   const selectedVariantId = variant?.id || defaultVariantId;
   const title = !availableForSale
-    ? 'Out of stock'
+    ? 'OUT OF STOCK'
     : !selectedVariantId
     ? 'Please select options'
     : undefined;
 
   return (
     <button
-      aria-label="Add item to cart"
+      aria-label="ADD ITEM TO CART"
       disabled={isPending || !availableForSale || !selectedVariantId}
       title={title}
       onClick={() => {
@@ -52,7 +52,7 @@ export function AddToCart({
         });
       }}
       className={clsx(
-        'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white hover:opacity-90',
+        'relative flex w-1/2 items-center justify-center bg-blue-600 tracking-wide text-white hover:opacity-90',
         {
           'cursor-not-allowed opacity-60 hover:opacity-60': !availableForSale || !selectedVariantId,
           'cursor-not-allowed': isPending
@@ -62,7 +62,7 @@ export function AddToCart({
       <div className="absolute left-0 ml-4">
         {!isPending ? <PlusIcon className="h-5" /> : <LoadingDots className="mb-3 bg-white" />}
       </div>
-      <span>{availableForSale ? 'Add To Cart' : 'Out Of Stock'}</span>
+      <span>{availableForSale ? 'ADD TO CART' : 'OUT OF STOCK'}</span>
     </button>
   );
 }
