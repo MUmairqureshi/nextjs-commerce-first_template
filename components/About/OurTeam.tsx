@@ -3,14 +3,9 @@
 import { motion } from 'framer-motion';
 
 import OurTeamCard from 'components/Cards/OurTeamCard';
+import { Product } from 'lib/shopify/types';
 
-interface PropType {
-  img: any;
-  name: string;
-  post: string;
-}
-
-const OurTeam = ({ TeamData }: { TeamData: PropType[] }) => {
+const OurTeam = ({ TeamData }: { TeamData: Product[] }) => {
   return (
     <div className="w-full bg-white px-6 py-8 md:p-12 ">
       <motion.div
@@ -21,16 +16,17 @@ const OurTeam = ({ TeamData }: { TeamData: PropType[] }) => {
         className="flex w-full flex-col items-center justify-center gap-6"
       >
         <div className="h-1 w-20 bg-primary" />
-        <h1 className="leading-wider mb-2 text-center text-xl font-semibold">A Few Words About</h1>
-        <h1 className="leading-wider text-3xl font-bold tracking-wider md:text-4xl">Our Team</h1>
-        <p className="text-center font-light">
-          Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat
-          auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
-        </p>
+        <h1 className="leading-wider mb-2 text-center text-xl font-semibold">
+          {TeamData[0]?.title}
+        </h1>
+        <h1 className="leading-wider text-3xl font-bold tracking-wider md:text-4xl">
+          {TeamData[1]?.title}
+        </h1>
+        <p className="text-center font-light">{TeamData[1]?.description}</p>
       </motion.div>
       <div className="mt-16 flex justify-center ">
         <div className="grid w-full grid-cols-1 gap-8 md:w-auto md:grid-cols-3">
-          {TeamData.map((item, ind) => {
+          {TeamData.slice(2, TeamData?.length).map((item, ind) => {
             return (
               <motion.div
                 key={ind}
