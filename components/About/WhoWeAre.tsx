@@ -3,8 +3,7 @@
 import Image from 'next/image';
 
 import { motion } from 'framer-motion';
-const WhoWeAre = ({ collection }: { collection: any }) => {
-  console.log(collection);
+const WhoWeAre = ({ data }: any) => {
   return (
     <div className=" flex items-center justify-center bg-background p-2 md:p-16">
       <div className="flex h-full w-full flex-col justify-between bg-white shadow-lg lg:flex-row">
@@ -17,9 +16,9 @@ const WhoWeAre = ({ collection }: { collection: any }) => {
         >
           <div className="h-1 w-20 bg-primary" />
           <h1 className="leading-wider text-center text-3xl font-bold tracking-wider md:text-left md:text-4xl">
-            {collection.title}
+            {data?.title}
           </h1>
-          <p className="text-center font-light md:text-left">{collection.description}</p>
+          <p className="text-center font-light md:text-left">{data?.description}</p>
         </motion.div>
         <motion.div
           viewport={{ once: false }}
@@ -29,10 +28,10 @@ const WhoWeAre = ({ collection }: { collection: any }) => {
           className="basis-1/2"
         >
           <Image
-            src={collection.featuredImage.url}
-            width={collection.featuredImage.width}
-            height={collection.featuredImage.height}
-            alt={collection.featuredImage.altText}
+            src={data?.featuredImage?.url}
+            height={data?.featuredImage?.height}
+            width={data?.featuredImage?.width}
+            alt={data?.featuredImage?.altText}
             className="h-full w-full"
             objectFit="cover"
           />
