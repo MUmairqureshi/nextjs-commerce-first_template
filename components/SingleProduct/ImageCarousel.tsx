@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/filename-case */
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -7,19 +8,20 @@ const ImageCarousel = ({ imgData }: { imgData: any }) => {
   return (
     <>
       <div className="border-content box-content grid h-full w-full  grid-cols-4 gap-4 ">
-        <div className="border-content col-span-4 box-content grid  w-full overflow-hidden">
+        <div className="border-content col-span-4 box-content grid w-full overflow-hidden">
           <Image
             src={selectedImage.url}
             alt={selectedImage.altText}
-            className="h-full w-full"
-            height={100}
-            width={100}
+            className="h-full w-full object-cover"
+            height={selectedImage.height}
+            width={selectedImage.width}
             objectFit="cover"
           />
         </div>
         {imgData &&
           imgData.map((e: any, i: any) => (
             <div
+              key={i}
               className={
                 selectedImage.url == e.url
                   ? 'border-2 border-primary brightness-110 hover:cursor-pointer '
@@ -29,9 +31,9 @@ const ImageCarousel = ({ imgData }: { imgData: any }) => {
             >
               <Image
                 src={e.url}
-                height={100}
+                height={80}
                 className="h-full w-full"
-                width={100}
+                width={80}
                 alt={e.altText}
                 objectFit="cover"
               />

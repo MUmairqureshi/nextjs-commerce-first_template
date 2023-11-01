@@ -1,6 +1,6 @@
+/* eslint-disable unicorn/filename-case */
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const subDesc = [
@@ -28,29 +28,32 @@ const ProductDescription = ({ longDesc, subImg }: any) => {
         <p className="text-sm leading-8 md:text-base">{longDesc}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-3">
-        <motion.div
+        <div>
+          {/* <motion.div
           viewport={{ once: false }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="h-full w-full"
-        >
+        > */}
           <Image
             src={subImg[0].url}
-            width={100}
-            height={100}
+            width={subImg[0].width}
+            height={subImg[0].height}
             className="h-full w-full"
             alt={subImg[0].altText}
             objectFit="cover"
           />
-        </motion.div>
-        <motion.div
+        </div>
+        {/* </motion.div> */}
+        <div>
+          {/* <motion.div
           viewport={{ once: false }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="h-full w-full"
-        >
+        > */}
           <Image
             src={subImg.length < 2 ? subImg[0].url : subImg[1].url}
             width={100}
@@ -59,14 +62,16 @@ const ProductDescription = ({ longDesc, subImg }: any) => {
             alt={subImg.length < 2 ? subImg[0].altText : subImg[1].altText}
             objectFit="cover"
           />
-        </motion.div>
+        </div>
+        <div>
+          {/* </motion.div>
         <motion.div
           viewport={{ once: false }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="h-full w-full"
-        >
+        > */}
           <Image
             src={subImg.length < 3 ? subImg[0].url : subImg[2].url}
             width={100}
@@ -75,41 +80,47 @@ const ProductDescription = ({ longDesc, subImg }: any) => {
             alt={subImg.length < 3 ? subImg[0].altText : subImg[2].altText}
             objectFit="cover"
           />
-        </motion.div>
+        </div>
+        {/* </motion.div> */}
 
         <div className=" flex flex-col justify-center space-y-4 bg-white px-6 py-6 md:px-12 lg:p-20">
           {subDesc?.map((e: { heading: string; desc: string }, i: number) => {
             return (
-              <motion.div
-                key={i}
-                viewport={{ once: false }}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 * i }}
-              >
+              <div key={i}>
+                {/* // <motion.div
+              //   key={i}
+              //   viewport={{ once: false }}
+              //   initial={{ opacity: 0, y: 10 }}
+              //   whileInView={{ opacity: 1, y: 0 }}
+              //   transition={{ duration: 1, delay: 0.2 * i }}
+              // > */}
                 <h3 className="mb-1 text-lg font-semibold">{e.heading}</h3>
                 <p className="text-sm font-light md:text-base">{e.desc}</p>
-              </motion.div>
+              </div>
+              // </motion.div>
             );
           })}
         </div>
-        <motion.div
+        <div className="flex flex-col justify-center space-y-4 bg-white px-6 py-6 md:px-12 lg:p-20">
+          {/* <motion.div
           viewport={{ once: false }}
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="flex flex-col justify-center space-y-4 bg-white px-6 py-6 md:px-12 lg:p-20"
-        >
+        > */}
           <h3 className="mb-1 text-lg font-semibold">More About This Product</h3>
           <p className="text-sm font-light md:text-base">{more}</p>
-        </motion.div>
-        <motion.div
+        </div>
+        {/* </motion.div> */}
+        <div>
+          {/* <motion.div
           viewport={{ once: false }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="h-full w-full"
-        >
+        > */}
           <Image
             src={subImg.length < 4 ? subImg[0].url : subImg[3].url}
             width={100}
@@ -118,7 +129,8 @@ const ProductDescription = ({ longDesc, subImg }: any) => {
             alt={subImg.length < 4 ? subImg[0].altText : subImg[3].altText}
             objectFit="cover"
           />
-        </motion.div>
+        </div>
+        {/* </motion.div> */}
       </div>
     </div>
   );

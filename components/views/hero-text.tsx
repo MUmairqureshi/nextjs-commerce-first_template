@@ -22,8 +22,8 @@ const HeroText = () => {
       </motion.div>
 
       <div className="mt-8 gap-x-4 md:flex">
-        <Link href={'/'}>
-          <Button className="w-full bg-white text-black">SHOP NOW</Button>
+        <Link href={'/collection/everything_collection'}>
+          <Button className="w-full bg-white text-black hover:bg-white">SHOP NOW</Button>
         </Link>
         <Link href={'/'}>
           <Button variant="outline" className="mt-4 w-full bg-transparent md:mt-0">

@@ -1,23 +1,28 @@
 import logo from 'components/images/dnk_logo_black.png';
+import { getMenu } from 'lib/shopify';
 import Image from 'next/image';
 import { Button } from 'src/components/ui/button';
 import { Input } from 'src/components/ui/input';
 
-const ForHimData = [
-  { label: 'Men jeans', href: '#' },
-  { label: 'Men jeans', href: '#' },
-  { label: 'Men jeans', href: '#' },
-  { label: 'Men jeans', href: '#' }
-];
-const ForHerData = [
-  { label: 'Women jeans', href: '#' },
-  { label: 'Women jeans', href: '#' },
-  { label: 'Women jeans', href: '#' },
-  { label: 'Women jeans', href: '#' },
-  { label: 'Women jeans', href: '#' }
-];
+// const ForHimData = [
+//   { label: 'Men jeans', href: '#' },
+//   { label: 'Men jeans', href: '#' },
+//   { label: 'Men jeans', href: '#' },
+//   { label: 'Men jeans', href: '#' }
+// ];
+// const ForHerData = [
+//   { label: 'Women jeans', href: '#' },
+//   { label: 'Women jeans', href: '#' },
+//   { label: 'Women jeans', href: '#' },
+//   { label: 'Women jeans', href: '#' },
+//   { label: 'Women jeans', href: '#' }
+// ];
 
-const footer = () => {
+const footer = async () => {
+  const men_menu = await getMenu('footer_men');
+  const women_menu = await getMenu('footer_women');
+  const child_menu = await getMenu('footer_child');
+  // console.log("menu",menu.map(menu =>{return menu.title}))
   return (
     <div>
       <div className=" w-full border-y-2  border-gray-300 p-10 text-center">
@@ -25,7 +30,7 @@ const footer = () => {
           SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS
         </h1>
       </div>
-      <div className="mx-auto grid border-b-2 border-gray-300 px-10 py-16 md:grid-cols-5">
+      <div className="mx-auto grid border-b-2 border-gray-300 px-8 py-16 md:grid-cols-6">
         <div className="sm:col-span-2">
           <Image src={logo} alt="logo" />
           <h2 className="mt-2 text-xl	 font-bold leading-10 tracking-wider">
@@ -35,13 +40,13 @@ const footer = () => {
         <div className="p-3">
           <h2 className="trading-wider  mb-6 text-lg font-medium">For Her</h2>
           <ul>
-            {ForHerData.map((item, index) => {
+            {women_menu.map((item, index) => {
               return (
                 <li
                   key={index}
                   className="mb-2 text-base font-light text-gray-600 hover:cursor-pointer hover:text-primary"
                 >
-                  <a href={item.href}>{item.label}</a>
+                  <a href={item.path}>{item.title}</a>
                 </li>
               );
             })}
@@ -50,13 +55,28 @@ const footer = () => {
         <div className="p-3">
           <h2 className="trading-wider  mb-6 text-lg font-medium">For Him</h2>
           <ul>
-            {ForHimData.map((item, index) => {
+            {men_menu.map((item, index) => {
               return (
                 <li
                   key={index}
                   className="mb-2 text-base font-light text-gray-600 hover:cursor-pointer hover:text-primary"
                 >
-                  <a href={item.href}>{item.label}</a>
+                  <a href={item.path}>{item.title}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="p-3">
+          <h2 className="trading-wider  mb-6 text-lg font-medium">For Child</h2>
+          <ul>
+            {child_menu.map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  className="mb-2 text-base font-light text-gray-600 hover:cursor-pointer hover:text-primary"
+                >
+                  <a href={item.path}>{item.title}</a>
                 </li>
               );
             })}

@@ -1,38 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from 'src/components/ui/button';
-// import { Product } from '../product/products';
-import shop_by_look_bottom from '/components/images/shop_by_look_bottom.png';
-import shop_by_look_shoes from '/components/images/shop_by_look_shoes.png';
-import shop_by_look_top from '/components/images/shop_by_look_top.png';
-import { Product } from 'lib/shopify/types';
-
-// const products: Product[] = [
-//   {
-//     _id: 1,
-//     title: 'Crop top',
-//     category: 'Men',
-//     price: 39,
-//     imageUrl: shop_by_look_top
-//   },
-//   {
-//     _id: 2,
-//     title: 'Shorts',
-//     category: 'Men',
-//     price: 39,
-//     imageUrl: shop_by_look_bottom
-//   },
-//   {
-//     _id: 3,
-//     title: 'Running Shoes',
-//     category: 'Men',
-//     price: 39,
-//     imageUrl: shop_by_look_shoes
-//   }
-// ];
 
 const ItemLook = ({ fourProduct, item, secondProduct }: any) => {
   const filledStars = 2;
@@ -83,7 +53,7 @@ const ItemLook = ({ fourProduct, item, secondProduct }: any) => {
           </div>
         </motion.div>
       </Link>
-      <Link key={secondProduct.handle} href={`/product/`}>
+      <Link key={secondProduct.handle} href={`/product/${secondProduct.handle}`}>
         <motion.div
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0, y: '10vh' }}
@@ -127,7 +97,7 @@ const ItemLook = ({ fourProduct, item, secondProduct }: any) => {
           </div>
         </motion.div>
       </Link>
-      <Link key={item.handle} href={`/product/`}>
+      <Link key={item.handle} href={`/product/${item.handle}`}>
         <motion.div
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0, y: '10vh' }}

@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 
 import HeroSection from 'components/SingleProduct/HeroSection';
 import ProductDetailsSection from 'components/SingleProduct/ProductDetailsSection';
-import RelatedProducts from 'components/SingleProduct/RelatedProducts';
 import { GridTileImage } from 'components/grid/tile';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
@@ -49,9 +48,9 @@ export async function generateMetadata({
   };
 }
 
-async function RelatedProd({ id }: { id: string }) {
+export async function RelatedProd({ id }: { id: string }) {
   const relatedProducts = await getProductRecommendations(id);
-  console.log('id', id);
+  // console.log('id', id);
   if (!relatedProducts.length) return <p>null</p>;
 
   return (
@@ -116,8 +115,9 @@ export default async function ProductPage({ params }: { params: { handle: string
         <div className="max-w-screen-xl bg-background px-6 py-16">
           <HeroSection data={product} />
           <ProductDetailsSection data={product} />
+          <RelatedProd id={product.id} />
           {/* <RelatedProd id={product.id} /> */}
-          <RelatedProducts />
+          {/* <RelatedProducts /> */}
         </div>
       </div>
     </>

@@ -1,4 +1,5 @@
 // 'use client';
+import logo from 'components/images/dnk_logo_black.png';
 import { getMenu } from 'lib/shopify';
 import { ShoppingBag, User2 } from 'lucide-react';
 import Image from 'next/image';
@@ -6,7 +7,6 @@ import Link from 'next/link';
 import { Sheet, SheetContent, SheetTrigger } from 'src/components/ui/sheet';
 import MobileMenu from './mobile-menu';
 import Search from './search';
-import logo from '/components/images/dnk_logo.png';
 
 const SHEET_SIDES = ['top'] as const;
 
@@ -51,14 +51,14 @@ export default async function Navbar() {
   const menu = await getMenu('header_menu');
   // console.log("menu",menu)
   return (
-    <div className="relative left-0 top-0 z-50 w-full bg-black  bg-opacity-10">
+    <div className="relative left-0 top-0 z-50 w-full bg-black ">
       {/* <motion.section
       initial={{ y: '-100vh' }}
       animate={{ y: 0 }}
       transition={{ duration: 1 }}
       className="relative left-0 top-0 z-50 w-full bg-black  bg-opacity-10"
     > */}
-      <div className="hidden items-center justify-between bg-[#0274be] bg-opacity-10 px-6 py-8 lg:flex lg:py-6">
+      <div className="hidden items-center justify-between bg-white px-6 py-8 lg:flex lg:py-0">
         <div className="hidden flex-auto items-center justify-between lg:flex">
           <Link href={'../../'}>
             <Image className="scale-90 items-center" src={logo} alt="logo" />
@@ -71,7 +71,7 @@ export default async function Navbar() {
                 <li key={item.title}>
                   <Link
                     href={`/collection/${item.title.toLocaleLowerCase()}_category`}
-                    className="items-center text-sm font-semibold uppercase text-white"
+                    className="items-center text-sm font-semibold uppercase text-black"
                   >
                     {item.title}
                   </Link>
@@ -79,7 +79,7 @@ export default async function Navbar() {
               ))}
             </ul>
           ) : null}
-          <ul className="flex items-center gap-x-6 text-sm text-white">
+          <ul className="flex items-center gap-x-6 text-sm text-black">
             <li>{SheetSide()}</li>
             <li>
               <Link href={'/about'}>ABOUT</Link>
