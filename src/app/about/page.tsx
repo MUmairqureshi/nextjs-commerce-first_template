@@ -20,7 +20,7 @@ const About = async () => {
   return (
     <>
       <div
-        style={{ backgroundImage: `url(${bgImage})` }}
+        style={{ backgroundImage: `url(${collectionProduct[0]?.featuredImage.url})` }}
         className="w-full bg-cover bg-fixed bg-center bg-no-repeat "
       >
         <div className="flex h-[320px] w-full items-center justify-center backdrop-brightness-50 md:h-[440px]">
@@ -30,7 +30,7 @@ const About = async () => {
       </div>
 
       <div
-        style={{ backgroundImage: `url(${followUsBgImage})` }}
+        style={{ backgroundImage: `url(${collectionProduct[0]?.featuredImage.url})` }}
         className="w-full bg-cover bg-fixed bg-no-repeat "
       >
         <OurTeam TeamData={TeamProducts} />

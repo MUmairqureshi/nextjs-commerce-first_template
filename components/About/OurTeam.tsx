@@ -1,8 +1,8 @@
+/* eslint-disable unicorn/filename-case */
 'use client';
-
+import OurTeamCard from 'components/Cards/OurTeamCard';
 import { motion } from 'framer-motion';
 
-import OurTeamCard from 'components/Cards/OurTeamCard';
 import { Product } from 'lib/shopify/types';
 
 const OurTeam = ({ TeamData }: { TeamData: Product[] }) => {

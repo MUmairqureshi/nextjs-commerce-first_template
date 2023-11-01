@@ -2,14 +2,15 @@
 import { defaultSort, sorting } from 'lib/constants';
 import { getCollection, getCollectionProducts } from 'lib/shopify';
 import { Product } from 'lib/shopify/types';
-import Link from 'next/link';
-import BestSellerProductCard from '../best-seller-product-card';
-import MenProducts from '../men-products';
+import BestSellerProductCard from '../../best-seller-product-card';
+import MenProducts from '../../men-products';
+import CategoryComponent from './category-component';
+
 export default async function Hero({
   params,
   searchParams
 }: {
-  params: { handle: string };
+  params: { category: string; handle: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const { sort } = searchParams as { [key: string]: string };
@@ -19,30 +20,35 @@ export default async function Hero({
     tshirt = await getCollection(`mens-shirt`);
     joggers = await getCollection(`mens-jogger`);
     pants = await getCollection(`mens-pant`);
-  }
-  if (params.handle == 'women_category') {
+  } else if (params.handle == 'women_category') {
     tshirt = await getCollection(`womens-shirt`);
-    joggers = await getCollection(`womens-joggers`);
-    pants = await getCollection(`womens-pants`);
-  }
-  if (params.handle == 'children_category') {
-    tshirt = await getCollection(`children-shirt`);
-    joggers = await getCollection(`children-joggers`);
-    pants = await getCollection(`children-pants`);
+    joggers = await getCollection(`womens-footwear`);
+    pants = await getCollection(`womens-trouser`);
+  } else if (params.handle == 'children_category') {
+    tshirt = await getCollection(`children-tshirt`);
+    joggers = await getCollection(`childrens-joger`);
+    pants = await getCollection(`childrens-pant`);
   }
   const menus = [tshirt, joggers, pants];
 
   const latestProduct = await getCollectionProducts({
     sortKey,
     reverse,
-    collection: `${params.handle}`
+    collection: `${params.category}`
   });
 
-  const collection = await getCollection(`${params.handle}`);
+  const collection = await getCollection(`${params.category}`);
+  const main_collection = await getCollection(`${params.handle}`);
 
   return (
     <section>
-      <CategoryPage item={latestProduct} collection={collection} menu={menus} />
+      <CategoryPage
+        item={latestProduct}
+        collection={collection}
+        main_collection={main_collection}
+        menu={menus}
+        params={params}
+      />
     </section>
   );
 }
@@ -50,13 +56,16 @@ export default async function Hero({
 async function CategoryPage({
   collection,
   item,
-  menu
+  menu,
+  params,
+  main_collection
 }: {
   item: Product[];
   collection: any;
   menu: any;
+  params: { handle: string; category: string };
+  main_collection: any;
 }) {
-  console.log('women menu', menu);
   return (
     <section className="flex flex-col bg-slate-100">
       <div className="mx-1 my-16 flex flex-col-reverse gap-x-4 gap-y-8 px-1 md:mx-2 md:px-2 lg:flex-row 2xl:mx-80 2xl:px-80">
@@ -64,23 +73,23 @@ async function CategoryPage({
           {/* <MenProductSideBar /> */}
 
           <section className="lg:mx-2">
-            <div className="py-8">
+            <CategoryComponent menu={menu} params={params} />
+            {/* <div className="py-8">
               <h1 className="mb-8 text-xl">Categories</h1>
               <ul className="mt-5 items-center justify-center space-y-4 font-light">
-                {menu.map((item: any, idx: number) => {
-                  return (
-                    <div className="border-b-2 font-mono">
-                      <li key={idx} className="mb-4 flex justify-between text-black">
-                        <div className={`font-serif hover:text-indigo-600`}>
-                          <Link href={`${collection.handle}/${item?.handle}`}>{item?.title}</Link>
-                        </div>
-                        {/* <div>({item.quantity})</div> */}
-                      </li>
-                    </div>
-                  );
-                })}
+                {menu.map((item:any, idx:number) =>{
+                  console.log("item",item)
+                return (
+                  <div className="border-b-2 font-mono">
+                    <li key={idx} className="mb-4 flex justify-between text-black">
+                      <div className={`font-serif hover:text-indigo-600`}>
+                        <Link href={`/collection/${params.handle}/${params.category}`}>{item.title}</Link>
+                      </div>
+                    </li>
+                  </div>
+                )})}
               </ul>
-            </div>
+            </div> */}
             <div className="py-6">
               <h1 className="mb-4 text-xl">Our Best Sellers</h1>
               <div>
@@ -94,7 +103,7 @@ async function CategoryPage({
 
           <section className="p-4 md:mt-4 lg:mt-0 lg:px-6 lg:py-16 xl:px-16">
             <h2 className="text-sm capitalize text-gray-500 lg:text-base">
-              home / {collection.title}
+              home / {main_collection.title} / {collection.title}
             </h2>
             <h1 className="py-6 text-3xl capitalize text-black md:text-5xl lg:text-6xl">
               {collection.title}
