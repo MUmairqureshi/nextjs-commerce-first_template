@@ -21,7 +21,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
       <DynamicTag
         href={createUrl(item.path, newParams)}
         className={clsx(
-          'mb-1  mt-2 w-full font-serif text-sm underline-offset-4 hover:text-indigo-600 hover:underline dark:hover:text-neutral-100',
+          'mb-4  mt-4 w-full font-serif underline-offset-4 hover:text-indigo-600 hover:underline dark:hover:text-neutral-100',
           {
             'underline underline-offset-4': active
           }

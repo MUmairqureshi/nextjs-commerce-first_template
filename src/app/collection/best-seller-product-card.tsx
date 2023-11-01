@@ -8,7 +8,7 @@ import React from 'react';
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   return (
-    <Link href={product.handle}>
+    <Link href={`../product/${product.handle}`}>
       <div className="flex border-b-2 ">
         {/* Product Image (on the left) */}
         <div className="mb-4 mt-5 h-[80px] w-[80px] flex-shrink-0">

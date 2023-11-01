@@ -22,7 +22,7 @@ const HeroText = () => {
       </motion.div>
 
       <div className="mt-8 gap-x-4 md:flex">
-        <Link href={'/collection/everything_collection'}>
+        <Link href={'/allproducts'}>
           <Button className="w-full bg-white text-black hover:bg-white">SHOP NOW</Button>
         </Link>
         <Link href={'/'}>

@@ -1,9 +1,10 @@
+/* eslint-disable unicorn/filename-case */
 'use client';
 import Image from 'next/image';
 
-import img from 'components/images/aboutmg2.jpg';
 import { motion } from 'framer-motion';
-const WhoWeAre = () => {
+const WhoWeAre = ({ collection }: { collection: any }) => {
+  console.log(collection);
   return (
     <div className=" flex items-center justify-center bg-background p-2 md:p-16">
       <div className="flex h-full w-full flex-col justify-between bg-white shadow-lg lg:flex-row">
@@ -16,13 +17,9 @@ const WhoWeAre = () => {
         >
           <div className="h-1 w-20 bg-primary" />
           <h1 className="leading-wider text-center text-3xl font-bold tracking-wider md:text-left md:text-4xl">
-            Who We Are
+            {collection.title}
           </h1>
-          <p className="text-center font-light md:text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-            ullamcorper mattis, pulvinar dapibus leo. Nam nec tellus a odio tincidunt auctor a
-            ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.
-          </p>
+          <p className="text-center font-light md:text-left">{collection.description}</p>
         </motion.div>
         <motion.div
           viewport={{ once: false }}
@@ -31,7 +28,14 @@ const WhoWeAre = () => {
           transition={{ duration: 1.6 }}
           className="basis-1/2"
         >
-          <Image src={img} alt="img" className="h-full w-full" objectFit="cover" />
+          <Image
+            src={collection.featuredImage.url}
+            width={collection.featuredImage.width}
+            height={collection.featuredImage.height}
+            alt={collection.featuredImage.altText}
+            className="h-full w-full"
+            objectFit="cover"
+          />
         </motion.div>
       </div>
     </div>

@@ -48,7 +48,7 @@ export function SheetSide() {
 // const { SITE_NAME } = process.env;
 
 export default async function Navbar() {
-  const menu = await getMenu('header_menu');
+  const menu = await getMenu('header_main_menu');
   // console.log("menu",menu)
   return (
     <div className="relative left-0 top-0 z-50 w-full bg-black  bg-opacity-10">
@@ -67,6 +67,9 @@ export default async function Navbar() {
         <div className="hidden w-full items-center justify-between lg:flex lg:px-10">
           {menu.length ? (
             <ul className="hidden gap-8 text-sm md:flex md:items-center">
+              <li className="items-center text-sm font-semibold uppercase text-white">
+                <Link href={'/allproducts'}>ALL PRODUCTS</Link>
+              </li>
               {menu.map((item) => (
                 <li key={item.title}>
                   <Link
