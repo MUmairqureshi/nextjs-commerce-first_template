@@ -19,16 +19,14 @@ export default async function Hero({
     tshirt = await getCollection(`mens-shirt`);
     joggers = await getCollection(`mens-jogger`);
     pants = await getCollection(`mens-pant`);
-  }
-  if (params.handle == 'women_category') {
-    tshirt = await getCollection(`womens-shirt`);
-    joggers = await getCollection(`womens-joggers`);
-    pants = await getCollection(`womens-pants`);
-  }
-  if (params.handle == 'children_category') {
-    tshirt = await getCollection(`children-shirt`);
-    joggers = await getCollection(`children-joggers`);
-    pants = await getCollection(`children-pants`);
+  } else if (params.handle == 'women_category') {
+    tshirt = await getCollection(`womens-tshirt`);
+    joggers = await getCollection(`womens-footwear`);
+    pants = await getCollection(`womens-trouser`);
+  } else if (params.handle == 'children_category') {
+    tshirt = await getCollection(`children-tshirt`);
+    joggers = await getCollection(`childrens-joger`);
+    pants = await getCollection(`childrens-pant`);
   }
   const menus = [tshirt, joggers, pants];
 
@@ -72,7 +70,7 @@ async function CategoryPage({
                     <div className="border-b-2 font-mono">
                       <li key={idx} className="mb-4 flex justify-between text-black">
                         <div className={`font-serif hover:text-indigo-600`}>
-                          <Link href={`${collection.handle}/${item?.handle}`}>{item?.title}</Link>
+                          <Link href={`${collection.handle}/${item.handle}`}>{item.title}</Link>
                         </div>
                         {/* <div>({item.quantity})</div> */}
                       </li>
