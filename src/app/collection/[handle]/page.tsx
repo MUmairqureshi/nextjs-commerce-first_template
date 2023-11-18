@@ -23,7 +23,7 @@ export default async function Hero({
     tshirt = await getCollection(`womens-tshirt`);
     joggers = await getCollection(`womens-footwear`);
     pants = await getCollection(`womens-trouser`);
-  } else if (params.handle == 'children_category') {
+  } else if (params.handle == 'child_category') {
     tshirt = await getCollection(`children-tshirt`);
     joggers = await getCollection(`childrens-joger`);
     pants = await getCollection(`childrens-pant`);

@@ -1,11 +1,6 @@
-import Image from 'next/image';
-import end_of_season_sale from '/components/images/end_of_season_sale.jpeg';
-import end_of_season_sale_accessories from '/components/images/end_of_season_sale_accessories.jpeg';
-import end_of_season_sale_all from '/components/images/end_of_season_sale_all.jpeg';
-import end_of_season_sale_men from '/components/images/end_of_season_sale_men.jpeg';
-import end_of_season_sale_women from '/components/images/end_of_season_sale_women.jpeg';
 import { getCollectionProducts } from 'lib/shopify';
-import { Product } from 'lib/shopify/types';
+import Image from 'next/image';
+
 function Salespage({
   childrenfirstProduct,
   womensshopfirstProduct,

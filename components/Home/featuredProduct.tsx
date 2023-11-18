@@ -1,9 +1,7 @@
 // 'use client';
 import { getCollectionProducts } from 'lib/shopify';
-import StyleCard from '../Cards/StyleCard';
 import { Product } from 'lib/shopify/types';
-
-import { type } from 'os';
+import StyleCard from '../Cards/StyleCard';
 
 function Featured({ homepageItems }: { homepageItems: Product[] }) {
   return (
@@ -16,9 +14,10 @@ function Featured({ homepageItems }: { homepageItems: Product[] }) {
       </div>
 
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-12 px-2 lg:gap-y-16 ">
-        {homepageItems.map((item) => {
+        {homepageItems.map((item, i) => {
           return (
             <StyleCard
+              key={i}
               image={item.featuredImage.url}
               title={item.title}
               url={item.handle}
@@ -33,7 +32,7 @@ function Featured({ homepageItems }: { homepageItems: Product[] }) {
 
 export async function FeaturedProduct() {
   const homepageItems = await getCollectionProducts({
-    collection: 'all-Feature-Product'
+    collection: 'all-featured-products'
   });
 
   return (

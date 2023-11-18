@@ -277,7 +277,7 @@ export async function getCollection(handle: string): Promise<Collection | undefi
       handle
     }
   });
-
+  // console.log("res",res.body.data.collection)
   return reshapeCollection(res.body.data.collection);
 }
 
