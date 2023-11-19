@@ -4,25 +4,14 @@ import Image from 'next/image';
 import { Button } from 'src/components/ui/button';
 import { Input } from 'src/components/ui/input';
 
-// const ForHimData = [
-//   { label: 'Men jeans', href: '#' },
-//   { label: 'Men jeans', href: '#' },
-//   { label: 'Men jeans', href: '#' },
-//   { label: 'Men jeans', href: '#' }
-// ];
-// const ForHerData = [
-//   { label: 'Women jeans', href: '#' },
-//   { label: 'Women jeans', href: '#' },
-//   { label: 'Women jeans', href: '#' },
-//   { label: 'Women jeans', href: '#' },
-//   { label: 'Women jeans', href: '#' }
-// ];
-
 const footer = async () => {
-  const men_menu = await getMenu('footer_men');
-  const women_menu = await getMenu('footer_women');
-  const child_menu = await getMenu('footer_child');
-  // console.log("menu",menu.map(menu =>{return menu.title}))
+  const footer = await getMenu('footer');
+  // const women_menu = await getMenu('footer_women');
+  // const child_menu = await getMenu('footer_child');
+
+  const [men, women, child] = footer;
+
+  // console.log("men",men)
   return (
     <div>
       <div className=" w-full border-y-2  border-gray-300 p-10 text-center">
@@ -40,13 +29,15 @@ const footer = async () => {
         <div className="p-3">
           <h2 className="trading-wider  mb-6 text-lg font-medium">For Her</h2>
           <ul>
-            {women_menu.map((item, index) => {
+            {women?.subMenu.map((item, index) => {
               return (
                 <li
                   key={index}
                   className="mb-2 text-base font-light text-gray-600 hover:cursor-pointer hover:text-primary"
                 >
-                  <a href={item.path}>{item.title}</a>
+                  <a href={item.path.replace('/collections/', '/collection/women_category/')}>
+                    {item.title}
+                  </a>
                 </li>
               );
             })}
@@ -55,13 +46,15 @@ const footer = async () => {
         <div className="p-3">
           <h2 className="trading-wider  mb-6 text-lg font-medium">For Him</h2>
           <ul>
-            {men_menu.map((item, index) => {
+            {men?.subMenu.map((item, index) => {
               return (
                 <li
                   key={index}
                   className="mb-2 text-base font-light text-gray-600 hover:cursor-pointer hover:text-primary"
                 >
-                  <a href={item.path}>{item.title}</a>
+                  <a href={item.path.replace('/collections/', '/collection/men_category/')}>
+                    {item.title}
+                  </a>
                 </li>
               );
             })}
@@ -70,13 +63,15 @@ const footer = async () => {
         <div className="p-3">
           <h2 className="trading-wider  mb-6 text-lg font-medium">For Child</h2>
           <ul>
-            {child_menu.map((item, index) => {
+            {child?.subMenu.map((item, index) => {
               return (
                 <li
                   key={index}
                   className="mb-2 text-base font-light text-gray-600 hover:cursor-pointer hover:text-primary"
                 >
-                  <a href={item.path}>{item.title}</a>
+                  <a href={item.path.replace('/collections/', '/collection/child_category/')}>
+                    {item.title}
+                  </a>
                 </li>
               );
             })}

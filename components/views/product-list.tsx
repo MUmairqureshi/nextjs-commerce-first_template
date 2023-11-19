@@ -1,9 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from 'src/components/ui/button';
 
-export default async function ProductList({
+export default function ProductList({
   men,
   women,
   children
@@ -26,13 +27,13 @@ export default async function ProductList({
             {/* Dull black overlay */}
             <div className="absolute inset-0 z-10 bg-black opacity-50"></div>
             {/* Product Image */}
-            {/* <Image
-                src={women.featuredImage.url}
-                alt={women.featuredImage.altText}
-                height={500}
-                width={400}
-                className="z-0 h-full w-full object-cover object-top md:object-right-top"
-              /> */}
+            <Image
+              src={women.image.url}
+              alt={women.image?.altText}
+              height={women.image.height}
+              width={women.image.width}
+              className="z-0 h-full w-full object-cover object-top md:object-right-top"
+            />
           </div>
           <div className="absolute inset-0 z-20 m-5 flex flex-col items-start justify-end gap-y-4 text-lg font-semibold text-white lg:m-6 lg:space-y-1 xl:m-10">
             <h2 className="mt-3 text-2xl">{women.title}</h2>
@@ -55,13 +56,13 @@ export default async function ProductList({
             {/* Dull black overlay */}
             <div className="absolute inset-0 z-10 bg-black opacity-50"></div>
             {/* Product Image */}
-            {/* <Image
-                src={item.image}
-                alt="Product"
-                height={500}
-                width={400}
-                className="z-0 h-full w-full object-cover object-top md:object-right-top"
-              /> */}
+            <Image
+              src={men.image.url}
+              alt={men.image?.altText}
+              height={men.image.height}
+              width={men.image.width}
+              className="z-0 h-full w-full object-cover object-top md:object-right-top"
+            />
           </div>
           <div className="absolute inset-0 z-20 m-5 flex flex-col items-start justify-end gap-y-4 text-lg font-semibold text-white lg:m-6 lg:space-y-1 xl:m-10">
             <h2 className="mt-3 text-2xl">{men.title}</h2>
@@ -84,13 +85,13 @@ export default async function ProductList({
             {/* Dull black overlay */}
             <div className="absolute inset-0 z-10 bg-black opacity-50"></div>
             {/* Product Image */}
-            {/* <Image
-                src={item.image}
-                alt="Product"
-                height={500}
-                width={400}
-                className="z-0 h-full w-full object-cover object-top md:object-right-top"
-              /> */}
+            <Image
+              src={children.image.url}
+              alt={children.image?.altText}
+              height={children.image.height}
+              width={children.image.width}
+              className="z-0 h-full w-full object-cover object-top md:object-right-top"
+            />
           </div>
           <div className="absolute inset-0 z-20 m-5 flex flex-col items-start justify-end gap-y-4 text-lg font-semibold text-white lg:m-6 lg:space-y-1 xl:m-10">
             <h2 className="mt-3 text-2xl">{children?.title}</h2>

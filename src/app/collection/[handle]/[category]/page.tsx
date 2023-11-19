@@ -15,16 +15,17 @@ export default async function Hero({
 }) {
   const { sort } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
+  // console.log("params",params.handle)
   let tshirt, joggers, pants;
   if (params.handle == 'men_category') {
     tshirt = await getCollection(`mens-shirt`);
     joggers = await getCollection(`mens-jogger`);
     pants = await getCollection(`mens-pant`);
   } else if (params.handle == 'women_category') {
-    tshirt = await getCollection(`womens-shirt`);
+    tshirt = await getCollection(`womens-tshirt`);
     joggers = await getCollection(`womens-footwear`);
     pants = await getCollection(`womens-trouser`);
-  } else if (params.handle == 'children_category') {
+  } else if (params.handle == 'child_category') {
     tshirt = await getCollection(`children-tshirt`);
     joggers = await getCollection(`childrens-joger`);
     pants = await getCollection(`childrens-pant`);
@@ -38,6 +39,7 @@ export default async function Hero({
   });
 
   const collection = await getCollection(`${params.category}`);
+  // console.log("collection",params.category)
   const main_collection = await getCollection(`${params.handle}`);
 
   return (

@@ -21,10 +21,10 @@ const Home = async () => {
 
   const [firstProduct] = homepageItems;
 
-  const men = await getCollection('men');
-  const women = await getCollection('women');
-  const children = await getCollection('children');
-  // console.log(women?.handle)
+  const men = await getCollection('men_category');
+  const women = await getCollection('women_category');
+  const children = await getCollection('child_category');
+
   return (
     <div>
       <Hero />

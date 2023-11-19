@@ -30,7 +30,7 @@ export async function ShopByCategory() {
   // Collections that start with `hidden-*` are hidden from the search page.
 
   const womentrouser = await getCollectionProducts({
-    collection: 'All-women-Trouser'
+    collection: 'womens-trouser'
   });
 
   if (!womentrouser[0]) return null;
@@ -46,7 +46,7 @@ export async function ShopByCategory() {
   const [womenshirtfirstProduct] = womenshirt;
 
   const mensshirt = await getCollectionProducts({
-    collection: 'All-mens-shirt'
+    collection: 'mens-shirt'
   });
 
   if (!mensshirt[0]) return null;
